@@ -24,10 +24,11 @@ const Home = () => {
     ];
 
     return (
-        <div id='home' className='mt-10 sm:mt-10'>
-            <div className="relative flex flex-col lg:flex-row h-full w-full justify-between items-end px-5 sm:px-8 lg:px-0">
-                <div className="w-full lg:w-auto text-center lg:text-left">
-                    <h1 className="font-extralight text-[88px] leading-[82px]  sm:text-[110px] sm:leading-[100px] md:text-[130px] md:leading-[120px] lg:text-[150px] lg:leading-[145px] mb-6 sm:mb-8">
+        <div id="home" className="mt-20 lg:mt-10">
+
+            <div className="relative flex flex-col  lg:flex-row h-full w-full justify-between items-end px-5 sm:px-8 lg:px-0">
+                <div className="w-full lg:w-auto text-center lg:text-left ">
+                    <h1 className="font-extralight text-[88px] leading-[82px] sm:text-[110px] sm:leading-[100px] md:text-[130px] md:leading-[120px] lg:text-[150px] lg:leading-[145px] mb-6 sm:mb-8">
                         Medwin
                         <br className="block lg:inline" /> Gardose
                     </h1>
