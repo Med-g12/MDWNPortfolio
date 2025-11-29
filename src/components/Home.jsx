@@ -64,22 +64,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
-            <style jsx>{`
-                @keyframes scroll {
-                    0% {
-                        transform: translateX(0);
-                    }
-                    100% {
-                        transform: translateX(-33.333%);
-                    }
-                }
-
-                .animate-scroll {
-                    display: flex;
-                    animation: scroll 18s linear infinite;
-                }
-            `}</style>
         </div>
     );
 };
