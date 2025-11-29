@@ -32,7 +32,7 @@ const Projects = () => {
                         Things I've built with love
                     </p>
 
-                    <div className="relative -mx-5 sm:-mx-8 lg:mx-0">
+                    <div className="relative border-t border-t-gray-300 -mx-5 sm:-mx-8 lg:mx-0">
                         <div
                             className="flex gap-5 sm:gap-6 lg:gap-5 overflow-x-auto scroll-smooth py-4
                                        scrollbar scrollbar-thumb-gray-400 scrollbar-track-gray-100

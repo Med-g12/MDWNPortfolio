@@ -48,13 +48,19 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="relative -mx-30 overflow-hidden">
-                <div className="flex animate-scroll py-6">
-                    {[...carouselItems, ...carouselItems, ...carouselItems].map((item, index) => (
-                        <div key={index} className="flex-none mx-8">
-                            <img src={item.img} alt="" className="w-16 h-16 object-contain" />
-                        </div>
-                    ))}
+            <div className="w-full overflow-hidden py-8">
+                <div className='border-x border-x-2 border-gray-300'>
+                    <div className="flex animate-marquee gap-10 md:gap-16 lg:gap-0">
+                        {[...carouselItems, ...carouselItems].map((item, index) => (
+                            <div key={index} className="flex-none w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-16 lg:h-16 lg:mx-8">
+                                <img
+                                    src={item.img}
+                                    alt=""
+                                    className="w-full h-full object-contain select-none pointer-events-none"
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
 

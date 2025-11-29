@@ -1,7 +1,23 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
 
+.animate-marquee {
+  animation: marquee var(--duration, 40s) linear infinite;
+}
+
+/* Optional: pause on hover */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
 body {
   font-family: 'Inter', system-ui, sans-serif;
 }
