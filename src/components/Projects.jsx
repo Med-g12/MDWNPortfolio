@@ -29,7 +29,7 @@ const Projects = () => {
                         My Projects
                     </h2>
                     <p className="text-center text-gray-600 mb-10 lg:mb-12">
-                        Things I've built with love
+                        Things I've built so far
                     </p>
 
                     <div className="relative border-t border-t-gray-300 -mx-5 sm:-mx-8 lg:mx-0">
