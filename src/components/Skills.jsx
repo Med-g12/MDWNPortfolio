@@ -30,7 +30,7 @@ const Skills = () => {
                 Skills
             </div>
 
-            <div className="max-w-5xl mx-auto mt-8 lg:mt-5 p-6 sm:p-8 lg:p-10 bg-gray-50/80 backdrop-blur-sm rounded-3xl border border-gray-200/50 shadow-xl">
+            <div className=" max-w-5xl mx-auto mt-8 lg:mt-5 p-6 sm:p-8 lg:p-10 bg-gray-50/80 backdrop-blur-sm rounded-3xl border border-gray-200/50 shadow-xl">
                 <h2 className="text-center text-3xl sm:text-4xl font-bold text-gray-800 mb-10 lg:mb-12">
                     What I Can Do
                 </h2>
@@ -56,7 +56,7 @@ const Skills = () => {
                                         style={{ width: `${skill.level}%` }}
                                     />
                                 ) : (
-                                    <div className="h-full bg-gradient-to-r from-green-500 via-cyan-500 to-blue-500 rounded-full animate-pulse" />
+                                    <div className="h-full bg-gradient-to-r from-green-300 via-green-400 to-yellow-500 rounded-full animate-pulse" />
                                 )}
                             </div>
 

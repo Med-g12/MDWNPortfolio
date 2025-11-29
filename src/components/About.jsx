@@ -31,7 +31,7 @@ const About = () => {
                         I’m Medwin Gardose. I enjoy designing and building things with attention to detail, combining creativity with logic. I’m naturally curious and always exploring new ways to make projects both functional and visually appealing. I’m fascinated by how design and technology intersect, and I strive to create work that is thoughtful, intentional, and polished. Every project is an opportunity to learn, experiment, and push the boundaries of what’s possible while keeping things practical and user-friendly.
                     </p>
                     <a href="#footer">
-                        <button className="cursor-pointer px-8 py-3 mt-10 sm:mt-15 bg-gray-700 hover:bg-gray-800 text-white rounded-full transition shadow-lg">
+                        <button className="cursor-pointer px-8 py-3 mt-10 sm:mt-15 bg-green-200 hover:bg-green-300 font-semibold rounded-full transition shadow-lg">
                             Contact Me
                         </button>
                     </a>

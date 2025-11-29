@@ -4,7 +4,7 @@ import React, { useState } from "react";
 const NavigationBar = () => {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <nav className="bg-white shadow-sm">
+        <nav className="bg-white shadow-sm fixed top-0 w-full z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-1">
                 <div className="relative h-16 flex items-center px-4">
                     <div className="flex-shrink-0">

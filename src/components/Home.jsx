@@ -24,7 +24,7 @@ const Home = () => {
     ];
 
     return (
-        <>
+        <div id='home' className='mt-10'>
             <div className="relative flex flex-col lg:flex-row h-full w-full justify-between items-end px-5 sm:px-8 lg:px-0">
                 <div className="w-full lg:w-auto text-center lg:text-left">
                     <h1 className="font-extralight text-[88px] leading-[82px]  sm:text-[110px] sm:leading-[100px] md:text-[130px] md:leading-[120px] lg:text-[150px] lg:leading-[145px] mb-6 sm:mb-8">
@@ -41,7 +41,7 @@ const Home = () => {
                         className="w-64 sm:w-72 lg:w-70 rounded-2xl mb-4 shadow-2xl"
                     />
                     <p className="text-center lg:text-right text-sm sm:text-base lg:leading-5 font-semibold leading-relaxed px-4 lg:px-0">
-                        I’m Medwin Gardose, <br className="hidden sm:inline lg:hidden" />
+                        I’m Medwin Gardose, <br className="hidden sm:inline" />
                         a web developer crafting modern, <br className="hidden sm:inline" />
                         responsive, and user-friendly websites.
                     </p>
@@ -79,7 +79,7 @@ const Home = () => {
                     animation: scroll 18s linear infinite;
                 }
             `}</style>
-        </>
+        </div>
     );
 };
 
