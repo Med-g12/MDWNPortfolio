@@ -1,14 +1,15 @@
-import './App.css'
+import './App.css';
 import PortfolioLayout from './layout/PortfolioLayout';
-import Home from './components/Home'
+import Home from './components/Home';
 import About from './components/About';
-import Skills from './components/Skills'
+import Skills from './components/Skills';
 import Projects from './components/Projects';
 
 function App() {
-
     return (
         <>
+            <div className="animate-bgGradient"></div>
+
             <PortfolioLayout>
                 <Home />
                 <About />
@@ -16,7 +17,7 @@ function App() {
                 <Projects />
             </PortfolioLayout>
         </>
-    )
+    );
 }
 
-export default App
+export default App;

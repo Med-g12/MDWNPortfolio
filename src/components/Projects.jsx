@@ -17,8 +17,8 @@ const Projects = () => {
     return (
         <div id="projects" className="px-5 sm:px-8 lg:px-0">
             <div
-                className="py-3 px-6 sm:pr-50 text-lg rounded-full w-fit border-2  transition hover:bg-gray-50"
-                style={{ borderImage: 'linear-gradient(to right, #9ca3af, #ffffff) 1' }}
+                className="py-3 px-6 sm:pr-50 text-lg rounded-full w-fit border-2 transition"
+                style={{ borderImage: 'linear-gradient(to right, #9ca3af, transparent) 1' }}
             >
                 Projects
             </div>

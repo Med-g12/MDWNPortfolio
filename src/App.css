@@ -1,0 +1,16 @@
+
+@keyframes bgGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-bgGradient {
+  background: linear-gradient(270deg, #ffffff, #f0fefa);
+  background-size: 800% 800%;
+  animation: bgGradient 20s ease infinite;
+  position: fixed; 
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}

@@ -5,9 +5,9 @@ const About = () => {
     return (
         <div id="about" className="my-20 lg:my-40 px-6 sm:px-10 lg:px-0">
             <div
-                className="py-3 pr-12 sm:pr-50 px-6 text-lg rounded-full w-fit border-2 bg-white transition"
+                className="py-3 pr-12 sm:pr-50 px-6 text-lg rounded-full w-fit border-2 transition"
                 style={{
-                    borderImage: 'linear-gradient(to right, #9ca3af, #ffffff) 1',
+                    borderImage: 'linear-gradient(to right, #9ca3af, transparent) 1',
                 }}
             >
                 About Me

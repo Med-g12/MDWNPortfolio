@@ -22,9 +22,9 @@ const Skills = () => {
     return (
         <div id="skills" className="my-20 lg:my-40 px-5 sm:px-8 lg:px-0">
             <div
-                className="py-3 px-6 lg:pr-50 text-lg rounded-full w-fit border-2 bg-white transition hover:bg-gray-50 "
+                className="py-3 px-6 lg:pr-50 text-lg rounded-full w-fit border-2 transition"
                 style={{
-                    borderImage: 'linear-gradient(to right, #9ca3af, #ffffff) 1',
+                    borderImage: 'linear-gradient(to right, #9ca3af, transparent) 1',
                 }}
             >
                 Skills

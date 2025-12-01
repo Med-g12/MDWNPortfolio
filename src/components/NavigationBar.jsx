@@ -10,13 +10,13 @@ const NavigationBar = () => {
                 if (link) {
                     link.classList.remove('opacity-0', '-translate-y-5');
                 }
-            }, index * 150); // stagger 150ms per link
+            }, index * 150); 
         });
     }, []);
 
     const navItems = ['Home', 'About', 'Skills', 'Projects'];
     return (
-        <nav className="bg-white shadow-sm fixed top-0 w-full z-50">
+        <nav className="bg-white/80 shadow-sm fixed top-0 w-full z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-1">
                 <div className="relative h-16 flex items-center px-4">
                     <div className="flex-shrink-0">

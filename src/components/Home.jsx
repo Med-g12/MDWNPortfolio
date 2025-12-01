@@ -58,7 +58,7 @@ const Home = () => {
 
             <div className="relative flex flex-col  lg:flex-row h-full w-full justify-between items-end px-5 sm:px-8 lg:px-0">
                 <div ref={headingRef} className="w-full lg:w-auto text-center lg:text-left opacity-0 -translate-x-5 transition-all duration-700 ease-out animate-on-load">
-                    <h1 className="font-extralight text-[88px] leading-[82px] sm:text-[110px] sm:leading-[100px] md:text-[130px] md:leading-[120px] lg:text-[150px] lg:leading-[145px] mb-6 sm:mb-8">
+                    <h1 className="font-extralight text-[68px] leading-[62px] sm:leading-[100px] sm:text-sm md:text-[130px] md:leading-[120px] lg:text-[150px] lg:leading-[145px] sm:mb-8">
                         Medwin
                         <br className="block lg:inline" /> Gardose
                     </h1>
@@ -80,7 +80,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="w-full overflow-hidden py-8">
+            <div className="w-full overflow-hidden pb-8">
                 <div ref={carouselRef} className='border-x border-x-2 border-gray-300 opacity-0 translate-y-5 transition-all duration-700 ease-out'>
                     <div className="flex animate-marquee gap-10 md:gap-16 lg:gap-0">
                         {[...carouselItems, ...carouselItems].map((item, index) => (
