@@ -9,6 +9,9 @@
     transform: translateX(-50%);
   }
 }
+html {
+  scroll-padding-top: 100px; /* height of your navbar */
+}
 
 .animate-marquee {
   animation: marquee var(--duration, 40s) linear infinite;

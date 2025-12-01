@@ -1,8 +1,20 @@
-import React, { useState } from "react";
-
+import { useState, useEffect, useRef } from 'react';
 
 const NavigationBar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const linksRef = useRef([]);
+
+    useEffect(() => {
+        linksRef.current.forEach((link, index) => {
+            setTimeout(() => {
+                if (link) {
+                    link.classList.remove('opacity-0', '-translate-y-5');
+                }
+            }, index * 150); // stagger 150ms per link
+        });
+    }, []);
+
+    const navItems = ['Home', 'About', 'Skills', 'Projects'];
     return (
         <nav className="bg-white shadow-sm fixed top-0 w-full z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-1">
@@ -14,18 +26,16 @@ const NavigationBar = () => {
                     </div>
 
                     <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex space-x-8 text-sm">
-                        <a href="#home" className="hover:text-gray-900 text-[16px] hover:scale-110 transition">
-                            Home
-                        </a>
-                        <a href="#about" className="hover:text-gray-900 text-[16px] hover:scale-110 transition">
-                            About
-                        </a>
-                        <a href="#skills" className="hover:text-gray-900 text-[16px] hover:scale-110 transition">
-                            Skills
-                        </a>
-                        <a href="#projects" className="hover:text-gray-900 text-[16px] hover:scale-110 transition">
-                            Projects
-                        </a>
+                        {navItems.map((item, index) => (
+                            <a
+                                key={item}
+                                href={`#${item.toLowerCase()}`}
+                                ref={(el) => (linksRef.current[index] = el)}
+                                className="hover:text-gray-900 text-[16px] hover:scale-110 transition opacity-0 -translate-y-5"
+                            >
+                                {item}
+                            </a>
+                        ))}
                     </div>
 
                     <div className="ml-auto hidden md:flex">

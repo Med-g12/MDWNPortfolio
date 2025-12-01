@@ -1,4 +1,5 @@
-import React from 'react';
+
+import { useEffect, useRef } from 'react';
 import pfp from '../assets/portpfp.jpg';
 import java from '../assets/javalogo.png'
 import python from '../assets/pythonlogo.png'
@@ -22,12 +23,41 @@ const Home = () => {
         { img: laravel },
         { img: figma },
     ];
+    const headingRef = useRef(null);
+    const profileRef = useRef(null);
+    const carouselRef = useRef(null);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (headingRef.current) {
+                headingRef.current.classList.remove('opacity-0', '-translate-x-5');
+            }
+        }, 100);
 
+        return () => clearTimeout(timer);
+    }, []);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (profileRef.current) {
+                profileRef.current.classList.remove('opacity-0', 'translate-x-5');
+            }
+        }, 100);
+
+        return () => clearTimeout(timer);
+    }, []);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (carouselRef.current) {
+                carouselRef.current.classList.remove('opacity-0', 'translate-y-5');
+            }
+        }, 100);
+
+        return () => clearTimeout(timer);
+    }, []);
     return (
         <div id="home" className="mt-20 lg:mt-10">
 
             <div className="relative flex flex-col  lg:flex-row h-full w-full justify-between items-end px-5 sm:px-8 lg:px-0">
-                <div className="w-full lg:w-auto text-center lg:text-left ">
+                <div ref={headingRef} className="w-full lg:w-auto text-center lg:text-left opacity-0 -translate-x-5 transition-all duration-700 ease-out animate-on-load">
                     <h1 className="font-extralight text-[88px] leading-[82px] sm:text-[110px] sm:leading-[100px] md:text-[130px] md:leading-[120px] lg:text-[150px] lg:leading-[145px] mb-6 sm:mb-8">
                         Medwin
                         <br className="block lg:inline" /> Gardose
@@ -35,7 +65,8 @@ const Home = () => {
                 </div>
 
 
-                <div className="flex flex-col items-center lg:mt-10 lg:gap-60 lg:items-end w-full max-w-md mx-auto lg:mx-0 lg:mb-8 mt-8 lg:mt-0">
+
+                <div ref={profileRef} className="flex flex-col items-center lg:mt-10 lg:gap-60 lg:items-end w-full max-w-md mx-auto lg:mx-0 lg:mb-8 mt-8 lg:mt-0 opacity-0 translate-x-5 transition-all duration-700 ease-out">
                     <img
                         src={pfp}
                         alt="Medwin Gardose"
@@ -50,7 +81,7 @@ const Home = () => {
             </div>
 
             <div className="w-full overflow-hidden py-8">
-                <div className='border-x border-x-2 border-gray-300'>
+                <div ref={carouselRef} className='border-x border-x-2 border-gray-300 opacity-0 translate-y-5 transition-all duration-700 ease-out'>
                     <div className="flex animate-marquee gap-10 md:gap-16 lg:gap-0">
                         {[...carouselItems, ...carouselItems].map((item, index) => (
                             <div key={index} className="flex-none w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-16 lg:h-16 lg:mx-8">

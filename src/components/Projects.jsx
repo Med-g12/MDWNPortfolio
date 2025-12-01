@@ -15,7 +15,7 @@ const Projects = () => {
     ];
 
     return (
-        <div className="px-5 sm:px-8 lg:px-0">
+        <div id="projects" className="px-5 sm:px-8 lg:px-0">
             <div
                 className="py-3 px-6 sm:pr-50 text-lg rounded-full w-fit border-2  transition hover:bg-gray-50"
                 style={{ borderImage: 'linear-gradient(to right, #9ca3af, #ffffff) 1' }}
@@ -23,7 +23,7 @@ const Projects = () => {
                 Projects
             </div>
 
-            <section id="projects" className="mt-8 lg:mt-5 pb-16 lg:pb-20">
+            <section className="mt-8 lg:mt-5 pb-16 lg:pb-20">
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
                         My Projects
