@@ -11,11 +11,12 @@ const Skills = () => {
         { name: 'C#', level: 40, color: 'text-blue-300' },
         { name: 'Java', level: 50, color: 'text-orange-500' },
         { name: 'Python', level: 70, color: 'text-yellow-500' },
+        { name: 'Nuxt.js', level: 90, color: 'text-green-500' },
         {
             name: 'Currently exploring',
             level: null,
             color: 'text-gray-500',
-            language: ['Laravel', 'React', 'Vue.js', 'Tailwind CSS'],
+            language: ['Laravel', 'Nuxt.js'],
         }
     ];
 
