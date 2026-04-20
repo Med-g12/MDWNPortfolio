@@ -1,62 +1,43 @@
 
 import { useEffect, useRef } from 'react';
 import pfp from '../assets/portpfp.jpg';
-import java from '../assets/javalogo.png'
-import python from '../assets/pythonlogo.png'
-import csharp from '../assets/csharplogo.png'
-import reactlogo from '../assets/reactlogo.png'
-import html from '../assets/htmllogo.png'
-import css from '../assets/csslogo.png'
-import laravel from '../assets/laravellogo.png'
-import tailwind from '../assets/tailwindlogo.png'
-import figma from '../assets/figmalogo.png'
+import SkillsCarousel from './SkillsCarousel';
 
 const Home = () => {
-    const carouselItems = [
-        { img: java },
-        { img: python },
-        { img: csharp },
-        { img: reactlogo },
-        { img: html },
-        { img: css },
-        { img: tailwind },
-        { img: laravel },
-        { img: figma },
-    ];
     const headingRef = useRef(null);
     const profileRef = useRef(null);
     const carouselRef = useRef(null);
+
     useEffect(() => {
         const timer = setTimeout(() => {
             if (headingRef.current) {
                 headingRef.current.classList.remove('opacity-0', '-translate-x-5');
             }
         }, 100);
-
         return () => clearTimeout(timer);
     }, []);
+
     useEffect(() => {
         const timer = setTimeout(() => {
             if (profileRef.current) {
                 profileRef.current.classList.remove('opacity-0', 'translate-x-5');
             }
         }, 100);
-
         return () => clearTimeout(timer);
     }, []);
+
     useEffect(() => {
         const timer = setTimeout(() => {
             if (carouselRef.current) {
                 carouselRef.current.classList.remove('opacity-0', 'translate-y-5');
             }
         }, 100);
-
         return () => clearTimeout(timer);
     }, []);
-    return (
-        <div id="home" className="mt-20 lg:mt-10">
 
-            <div className="relative flex flex-col  lg:flex-row h-full w-full justify-between items-end px-5 sm:px-8 lg:px-0">
+    return (
+        <main id="home" className="mt-20 lg:mt-10">
+            <header className="relative flex flex-col lg:flex-row h-full w-full justify-between items-end px-5 sm:px-8 lg:px-0">
                 <div ref={headingRef} className="w-full lg:w-auto text-center lg:text-left opacity-0 -translate-x-5 transition-all duration-700 ease-out animate-on-load">
                     <h1 className="font-extralight text-[68px] leading-[62px] sm:leading-[100px] sm:text-sm md:text-[130px] md:leading-[120px] lg:text-[150px] lg:leading-[145px] sm:mb-8">
                         Medwin
@@ -64,9 +45,7 @@ const Home = () => {
                     </h1>
                 </div>
 
-
-
-                <div ref={profileRef} className="flex flex-col items-center lg:mt-10 lg:gap-60 lg:items-end w-full max-w-md mx-auto lg:mx-0 lg:mb-8 mt-8 lg:mt-0 opacity-0 translate-x-5 transition-all duration-700 ease-out">
+                <section ref={profileRef} className="flex flex-col items-center lg:mt-10 lg:gap-60 lg:items-end w-full max-w-md mx-auto lg:mx-0 lg:mb-8 mt-8 lg:mt-0 opacity-0 translate-x-5 transition-all duration-700 ease-out">
                     <img
                         src={pfp}
                         alt="Medwin Gardose"
@@ -77,26 +56,13 @@ const Home = () => {
                         a web developer crafting modern, <br className="hidden sm:inline" />
                         responsive, and user-friendly websites.
                     </p>
-                </div>
-            </div>
+                </section>
+            </header>
 
-            <div className="w-full overflow-hidden pb-8">
-                <div ref={carouselRef} className='border-x border-x-2 border-gray-300 opacity-0 translate-y-5 transition-all duration-700 ease-out'>
-                    <div className="flex animate-marquee gap-10 md:gap-16 lg:gap-0">
-                        {[...carouselItems, ...carouselItems].map((item, index) => (
-                            <div key={index} className="flex-none w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-16 lg:h-16 lg:mx-8">
-                                <img
-                                    src={item.img}
-                                    alt=""
-                                    className="w-full h-full object-contain select-none pointer-events-none"
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </div>
+            <SkillsCarousel ref={carouselRef} />
+        </main>
     );
 };
 
 export default Home;
+
