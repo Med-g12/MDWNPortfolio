@@ -10,13 +10,15 @@ const Skills = () => {
 		{ name: "React.js", level: 70, color: "text-blue-500" },
 		{ name: "C#", level: 50, color: "text-blue-300" },
 		{ name: "Java", level: 50, color: "text-orange-500" },
+		{ name: "Supabase", level: 30, color: "text-green-800" },
 		{ name: "Python", level: 80, color: "text-yellow-500" },
 		{ name: "Nuxt.js", level: 95, color: "text-green-500" },
+		{ name: "Next.js", level: 60, color: "text-blue-500" },
 		{
 			name: "Currently exploring",
 			level: null,
 			color: "text-gray-500",
-			language: ["Laravel", "Nuxt.js"],
+			language: ["Supabase", "Next.js"],
 		},
 	];
 
