@@ -9,6 +9,8 @@ import laravel from "../assets/laravellogo.png";
 import tailwind from "../assets/tailwindlogo.png";
 import figma from "../assets/figmalogo.png";
 import nuxt from "../assets/nuxtlogo.svg";
+import next from "../assets/next.webp";
+import supabase from "../assets/supabase.webp";
 
 const CarouselItem = ({ item }) => (
 	<li className="flex-none w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-16 lg:h-16 lg:mx-8">
@@ -30,11 +32,11 @@ const SkillsCarousel = React.forwardRef((props, ref) => {
 		{ img: html, name: "HTML" },
 		{ img: css, name: "CSS" },
 		{ img: tailwind, name: "Tailwind" },
-		// { img: Supabase, name: "Supabase" },
+		{ img: supabase, name: "Supabase" },
 		{ img: laravel, name: "Laravel" },
 		{ img: figma, name: "Figma" },
 		{ img: nuxt, name: "Nuxt" },
-		// { img: next, name: "Next" },
+		{ img: next, name: "Next" },
 	];
 
 	const extendedItems = [...carouselItems, ...carouselItems];
