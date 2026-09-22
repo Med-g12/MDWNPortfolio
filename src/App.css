@@ -11,9 +11,9 @@
 }
 
 .animate-bgGradient {
-	background: linear-gradient(280deg, #ffffff, #ebfff8);
-	background-size: 800% 800%;
-	animation: bgGradient 50s ease infinite;
+	background: linear-gradient(280deg, #ffffff, #c8f8e4, #e5fbdc, #edf7ff);
+	background-size: 350% 350%;
+	animation: bgGradient 18s ease-in-out infinite;
 	position: fixed;
 	width: 100%;
 	height: 100%;

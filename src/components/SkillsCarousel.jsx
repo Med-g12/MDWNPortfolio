@@ -12,8 +12,14 @@ import nuxt from "../assets/nuxtlogo.svg";
 import next from "../assets/next.webp";
 import supabase from "../assets/supabase.webp";
 
-const CarouselItem = ({ item }) => (
-	<li className="flex-none w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-16 lg:h-16 lg:mx-8">
+const CarouselItem = ({ item, compact = false }) => (
+	<li
+		className={
+			compact
+				? "h-9 w-9 flex-none"
+				: "h-12 w-12 flex-none sm:h-24 sm:w-24 md:h-28 md:w-28 lg:mx-8 lg:h-16 lg:w-16"
+		}
+	>
 		<img
 			src={item.img}
 			alt={`${item.name} logo`}
@@ -23,7 +29,7 @@ const CarouselItem = ({ item }) => (
 	</li>
 );
 
-const SkillsCarousel = React.forwardRef((props, ref) => {
+const SkillsCarousel = React.forwardRef(({ compact = false, className = "" }, ref) => {
 	const carouselItems = [
 		{ img: java, name: "Java" },
 		{ img: python, name: "Python" },
@@ -43,7 +49,7 @@ const SkillsCarousel = React.forwardRef((props, ref) => {
 
 	return (
 		<section
-			className="w-full overflow-hidden pb-8"
+			className={`w-full overflow-hidden ${compact ? "" : "pb-8"} ${className}`}
 			aria-labelledby="skills-carousel-heading"
 		>
 			<h2 id="skills-carousel-heading" className="sr-only">
@@ -53,14 +59,18 @@ const SkillsCarousel = React.forwardRef((props, ref) => {
 				ref={ref}
 				role="region"
 				aria-roledescription="carousel"
-				className="border-x border-x-2 border-gray-300 opacity-0 translate-y-5 transition-all duration-700 ease-out"
+				className={
+					compact
+						? ""
+						: "border-x-2 border-x-gray-300 transition-all duration-700 ease-out"
+				}
 			>
 				<ul
-					className="flex animate-marquee gap-10 md:gap-16 lg:gap-0 list-none p-0 m-0"
+					className={`m-0 flex list-none p-0 animate-marquee ${compact ? "gap-5" : "gap-7 sm:gap-10 md:gap-16 lg:gap-0"}`}
 					aria-label="Skills Marquee"
 				>
 					{extendedItems.map((item, index) => (
-						<CarouselItem key={index} item={item} />
+						<CarouselItem key={index} item={item} compact={compact} />
 					))}
 				</ul>
 			</div>

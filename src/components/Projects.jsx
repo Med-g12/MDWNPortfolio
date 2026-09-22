@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ExternalLink } from "lucide-react";
 import dsc from "../assets/dsc.png";
 import flashify from "../assets/flashify.png";
 
@@ -15,6 +16,7 @@ const Projects = () => {
 			purpose:
 				"A school project developed for a real client, focused on delivering a functional and user-friendly application while applying full-stack development skills.",
 			role: "Frontend + Backend Developer",
+			status: "In Progress",
 		},
 		{
 			id: 2,
@@ -25,6 +27,8 @@ const Projects = () => {
 			purpose:
 				"A flashcard study website designed to help students review topics, practice active recall, and make studying more focused and effective.",
 			role: "Frontend Developer",
+			status: "Live",
+			liveUrl: "https://flashify-preview.vercel.app/",
 			disableImagePan: true,
 		},
 	];
@@ -61,7 +65,7 @@ const Projects = () => {
 									key={project.id}
 									className="flex-none w-[74vw] max-w-72 sm:w-96 sm:max-w-none md:w-96 snap-start group"
 								>
-									<div className="relative h-[31rem] overflow-hidden rounded-2xl bg-white shadow-md sm:h-[40rem] sm:shadow-lg">
+									<div className="relative h-[35rem] overflow-hidden rounded-2xl border border-gray-200/70 bg-white/75 shadow-md backdrop-blur-sm sm:h-[44rem] sm:shadow-lg">
 										<div className={`h-1.5 bg-gradient-to-r sm:h-2 ${project.color}`} />
 
 										<div className="relative z-10 flex h-full flex-col p-4 transition-opacity duration-300 group-hover:opacity-0 sm:p-7">
@@ -95,7 +99,7 @@ const Projects = () => {
 										</div>
 
 										<div
-											className={`absolute inset-x-0 bottom-0 z-20 overflow-y-auto overflow-x-hidden overscroll-contain border-t border-gray-100 bg-white transition-[height] duration-700 ease-out scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 sm:h-64 sm:overflow-hidden sm:group-hover:h-full ${expandedProjectId === project.id ? "h-full" : "h-48"}`}
+											className={`absolute inset-x-0 bottom-16 z-20 overflow-y-auto overflow-x-hidden overscroll-contain border-y border-gray-200/70 bg-white/80 transition-[height] duration-700 ease-out scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 sm:overflow-hidden sm:group-hover:h-[calc(100%-4rem)] ${expandedProjectId === project.id ? "h-[calc(100%-4rem)]" : "h-1/2"}`}
 											onScroll={() => setExpandedProjectId(project.id)}
 											onTouchMove={() => setExpandedProjectId(project.id)}
 										>
@@ -104,6 +108,37 @@ const Projects = () => {
 												alt={project.title}
 												className={`min-h-full w-full object-cover object-top transition-[height] duration-700 ease-out sm:h-full ${project.disableImagePan ? "" : "sm:group-hover:h-[140%] sm:group-hover:animate-[project-image-pan_8s_ease-in-out_infinite_alternate]"}`}
 											/>
+										</div>
+
+										<div className="absolute inset-x-0 bottom-0 z-30 flex h-16 items-center justify-between gap-2 bg-white/90 px-4 backdrop-blur-sm sm:px-7">
+											<span
+												className={`rounded-full px-2.5 py-1 text-[11px] font-semibold sm:px-3 sm:text-xs ${
+													project.status === "Live"
+														? "bg-emerald-50 text-emerald-700"
+														: project.status === "In Progress"
+															? "bg-amber-50 text-amber-700"
+															: "bg-slate-100 text-slate-600"
+												}`}
+											>
+												{project.status}
+											</span>
+
+											{project.liveUrl ? (
+												<a
+													href={project.liveUrl}
+													target="_blank"
+													rel="noreferrer"
+													className="inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-2.5 py-1 text-[11px] font-semibold text-white transition hover:bg-indigo-600 sm:px-3 sm:text-xs"
+													aria-label={`Open ${project.title} live site`}
+												>
+													Live Site
+													<ExternalLink className="h-3 w-3" aria-hidden="true" />
+												</a>
+											) : (
+												<span className="text-[11px] font-medium text-gray-400 sm:text-xs">
+													No live link
+												</span>
+											)}
 										</div>
 									</div>
 								</div>
