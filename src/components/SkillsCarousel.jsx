@@ -62,7 +62,7 @@ const SkillsCarousel = React.forwardRef(({ compact = false, className = "" }, re
 				className={
 					compact
 						? ""
-						: "border-x-2 border-x-gray-300 transition-all duration-700 ease-out"
+						: "transition-all duration-700 ease-out"
 				}
 			>
 				<ul

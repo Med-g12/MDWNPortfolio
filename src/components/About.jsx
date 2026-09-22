@@ -34,14 +34,17 @@ const About = () => {
 					</h1>
 					<button
 						type="button"
-						className="w-full lg:w-160 cursor-pointer text-left text-base leading-relaxed text-gray-600 transition-colors hover:text-gray-800 focus:outline-none sm:text-lg"
+						className="w-full cursor-pointer text-left text-base leading-relaxed text-gray-600 transition-colors hover:text-gray-800 focus:outline-none dark:text-gray-300 dark:hover:text-white sm:hidden"
 						onClick={() => setIsExpanded((current) => !current)}
 						aria-expanded={isExpanded}
 					>
 						{isExpanded ? aboutText : previewText}
 					</button>
+					<p className="hidden text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:block sm:text-lg lg:w-160">
+						{aboutText}
+					</p>
 					<a href="#footer">
-						<button className="cursor-pointer px-8 py-3 mt-10 sm:mt-15 bg-green-200 hover:bg-green-300 font-semibold rounded-full transition shadow-lg">
+						<button className="mt-10 cursor-pointer rounded-full bg-green-200 px-8 py-3 font-semibold text-gray-900 shadow-lg transition hover:bg-green-300 dark:bg-white dark:text-black dark:hover:bg-gray-200 sm:mt-15">
 							Contact Me
 						</button>
 					</a>

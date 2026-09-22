@@ -129,13 +129,13 @@ const Skills = () => {
 				Skills
 			</div>
 
-			<div className="relative mx-auto mt-8 max-w-5xl overflow-hidden rounded-3xl border border-gray-200/70 bg-white/75 p-4 shadow-xl backdrop-blur-sm sm:p-8 lg:mt-5 lg:p-10">
+			<div className="relative mx-auto mt-8 max-w-5xl overflow-hidden rounded-3xl border border-gray-200/70 bg-white/75 dark:border-white/20 dark:bg-black/35 p-4 shadow-xl backdrop-blur-sm sm:p-8 lg:mt-5 lg:p-10">
 				<div className="relative mb-7 flex flex-col gap-6 sm:mb-10 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
 					<div>
-						<h2 className="text-2xl font-bold text-gray-900 sm:text-4xl">
+						<h2 className="text-2xl font-bold text-gray-900 dark:text-white sm:text-4xl">
 							What I Can Do
 						</h2>
-						<p className="mt-2 max-w-2xl text-xs leading-5 text-gray-600 sm:mt-3 sm:text-base sm:leading-6">
+						<p className="mt-2 max-w-2xl text-xs leading-5 text-gray-600 dark:text-gray-300 sm:mt-3 sm:text-base sm:leading-6">
 							A practical mix of design, frontend, backend, and tools I use to
 							turn ideas into polished web experiences.
 						</p>
@@ -153,12 +153,12 @@ const Skills = () => {
 									<button
 										key={skill.name}
 										type="button"
-										className="group relative flex min-h-24 flex-col items-center justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white/85 p-3 text-left transition-all duration-300 hover:-translate-y-1 hover:border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400"
+										className="group relative flex min-h-24 flex-col items-center justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white/85 dark:border-white/20 dark:bg-black/30 p-3 text-left transition-all duration-300 hover:-translate-y-1 hover:border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400"
 										onClick={() => setActiveSkill(skillIndex)}
 										aria-label={`Show ${skill.name} skill level`}
 									>
 										<span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-green-300 via-cyan-300 to-blue-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-										<span className="self-start rounded-full bg-gray-100 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-gray-500">
+										<span className="self-start rounded-full bg-gray-100 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-gray-500 dark:bg-white/10 dark:text-gray-300">
 											{skill.category}
 										</span>
 										<img
@@ -172,7 +172,7 @@ const Skills = () => {
 											>
 												{skill.name}
 											</span>
-											<div className="mt-2 h-1 overflow-hidden rounded-full bg-gray-100">
+											<div className="mt-2 h-1 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10">
 												<div
 													className="h-full rounded-full bg-gradient-to-r from-green-400 to-blue-400 transition-all duration-500"
 													style={{ width: `${skill.level ?? 35}%` }}
@@ -189,7 +189,7 @@ const Skills = () => {
 								<button
 									key={index}
 									type="button"
-									className={`h-1.5 rounded-full transition-all duration-300 ${mobileSkillPage === index ? "w-10 bg-gray-800" : "w-6 bg-gray-300"}`}
+									className={`h-1.5 rounded-full transition-all duration-300 ${mobileSkillPage === index ? "w-10 bg-gray-800 dark:bg-white" : "w-6 bg-gray-300 dark:bg-white/30"}`}
 									onClick={() => setMobileSkillPage(index)}
 									aria-label={`Show skills page ${index + 1}`}
 								/>
@@ -201,12 +201,12 @@ const Skills = () => {
 								<button
 									key={skill.name}
 									type="button"
-									className="group relative flex min-h-24 flex-col items-center justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white/85 p-3 text-left transition-all duration-300 hover:-translate-y-1 hover:border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400 sm:min-h-36 sm:p-4 sm:shadow-sm sm:hover:shadow-xl"
+									className="group relative flex min-h-24 flex-col items-center justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white/85 dark:border-white/20 dark:bg-black/30 p-3 text-left transition-all duration-300 hover:-translate-y-1 hover:border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400 sm:min-h-36 sm:p-4 sm:shadow-sm sm:hover:shadow-xl"
 									onClick={() => setActiveSkill(index)}
 									aria-label={`Show ${skill.name} skill level`}
 								>
 									<span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-green-300 via-cyan-300 to-blue-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-									<span className="self-start rounded-full bg-gray-100 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-gray-500 sm:px-2.5 sm:py-1 sm:text-[10px]">
+									<span className="self-start rounded-full bg-gray-100 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-gray-500 dark:bg-white/10 dark:text-gray-300 sm:px-2.5 sm:py-1 sm:text-[10px]">
 										{skill.category}
 									</span>
 									<img
@@ -220,7 +220,7 @@ const Skills = () => {
 										>
 											{skill.name}
 										</span>
-										<div className="mt-2 h-1 overflow-hidden rounded-full bg-gray-100 sm:mt-3 sm:h-1.5">
+										<div className="mt-2 h-1 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10 sm:mt-3 sm:h-1.5">
 											<div
 												className="h-full rounded-full bg-gradient-to-r from-green-400 to-blue-400 transition-all duration-500"
 												style={{ width: `${skill.level ?? 35}%` }}
@@ -234,19 +234,19 @@ const Skills = () => {
 				) : (
 					<div className="relative isolate overflow-hidden">
 						<div className="mb-4 flex items-center justify-between gap-4 sm:mb-6">
-							<p className="text-xs font-medium text-gray-500 sm:text-sm">
+							<p className="text-xs font-medium text-gray-500 dark:text-gray-400 sm:text-sm">
 								Selected skill details
 							</p>
 							<button
 								type="button"
-								className="rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-600 transition hover:border-green-300 hover:text-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 sm:px-4 sm:py-2 sm:text-sm sm:shadow-sm"
+								className="rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-600 transition hover:border-green-300 hover:text-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 dark:border-white/20 dark:bg-black/35 dark:text-white sm:px-4 sm:py-2 sm:text-sm sm:shadow-sm"
 								onClick={() => setActiveSkill(null)}
 							>
 								View all
 							</button>
 						</div>
 
-						<div className="skill-rail-enter overflow-x-auto rounded-2xl border border-gray-200 bg-white/60 px-3 py-3 scrollbar-none sm:px-4 sm:py-4">
+						<div className="skill-rail-enter overflow-x-auto rounded-2xl bg-white/60 px-3 py-3 scrollbar-none dark:bg-black/15 sm:px-4 sm:py-4">
 							<div className="skill-carousel-track flex w-max gap-3 hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] sm:gap-4">
 								{[...skills, ...skills].map((skill, trackIndex) => {
 									const index = trackIndex % skills.length;
@@ -255,7 +255,7 @@ const Skills = () => {
 										<button
 											key={`${skill.name}-${trackIndex}`}
 											type="button"
-											className="group flex shrink-0 flex-col items-center justify-center gap-1.5 rounded-2xl border border-gray-200 bg-white/90 px-4 py-3 transition-all duration-500 hover:-translate-y-1 hover:border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400 sm:gap-2 sm:px-5 sm:py-4 sm:shadow-sm sm:hover:shadow-lg"
+											className="group flex shrink-0 flex-col items-center justify-center gap-1.5 rounded-2xl border border-gray-200 bg-white/90 dark:border-white/20 dark:bg-black/15 px-4 py-3 transition-all duration-500 hover:-translate-y-1 hover:border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400 sm:gap-2 sm:px-5 sm:py-4 sm:shadow-sm sm:hover:shadow-lg"
 											onClick={() => setActiveSkill(index)}
 											aria-label={`Show ${skill.name} skill level`}
 										>
@@ -275,18 +275,15 @@ const Skills = () => {
 							</div>
 						</div>
 
-						<div className="pointer-events-none absolute inset-y-14 left-0 w-8 bg-gradient-to-r from-white/95 to-transparent" />
-						<div className="pointer-events-none absolute inset-y-14 right-0 w-8 bg-gradient-to-l from-white/95 to-transparent" />
-
 						{activeSkillData && (
 							<div
 								key={activeSkillData.name}
-								className="skill-featured-enter mx-auto mt-6 grid max-w-3xl gap-5 rounded-3xl border border-gray-200 bg-white p-4 sm:mt-8 sm:gap-6 sm:p-7 sm:shadow-xl lg:grid-cols-[0.9fr_1.1fr]"
+								className="skill-featured-enter mx-auto mt-6 grid max-w-3xl gap-5 rounded-3xl border border-gray-200 bg-white p-4 dark:border-white/20 dark:bg-black/35 sm:mt-8 sm:gap-6 sm:p-7 sm:shadow-xl lg:grid-cols-[0.9fr_1.1fr]"
 								style={{ transformOrigin: "center bottom" }}
 							>
 								<button
 									type="button"
-									className="group mx-auto flex min-h-40 w-full flex-col items-center justify-center gap-3 overflow-hidden rounded-3xl border border-green-200 bg-gradient-to-b from-green-50 to-white p-4 transition-all duration-500 focus:outline-none focus:ring-4 focus:ring-green-200 sm:min-h-56 sm:gap-4 sm:p-6"
+									className="group mx-auto flex min-h-40 w-full flex-col items-center justify-center gap-3 overflow-hidden rounded-3xl border border-green-200 bg-transparent p-4 transition-all duration-500 focus:outline-none focus:ring-4 focus:ring-green-200 dark:border-green-300/30 sm:min-h-56 sm:gap-4 sm:p-6"
 									onClick={() =>
 										setActiveSkill((activeSkill + 1) % skills.length)
 									}
@@ -302,34 +299,34 @@ const Skills = () => {
 									>
 										{activeSkillData.name}
 									</span>
-									<span className="rounded-full bg-white px-3 py-1 text-[11px] font-semibold text-gray-500 sm:text-xs sm:shadow-sm">
+									<span className="rounded-full bg-gray-100/70 px-3 py-1 text-[11px] font-semibold text-gray-500 dark:bg-white/10 dark:text-gray-300 sm:text-xs sm:shadow-sm">
 										{activeSkillData.category}
 									</span>
 								</button>
 
 								<div className="flex flex-col justify-center">
 									<div className="mb-5">
-										<p className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-400 sm:text-sm">
+										<p className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-400 dark:text-gray-500 sm:text-sm">
 											Proficiency
 										</p>
 										<div className="mt-2 flex items-end gap-2">
-											<span className="text-4xl font-bold text-gray-900 sm:text-5xl">
+											<span className="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
 												{activeSkillData.level !== null
 													? activeSkillData.level
 													: "35"}
 											</span>
-											<span className="pb-1.5 text-base font-semibold text-gray-400 sm:pb-2 sm:text-lg">
+											<span className="pb-1.5 text-base font-semibold text-gray-400 dark:text-gray-500 sm:pb-2 sm:text-lg">
 												{activeSkillData.level !== null ? "%" : "% exploring"}
 											</span>
 										</div>
 									</div>
-									<div className="h-2.5 w-full overflow-hidden rounded-full bg-gray-100 sm:h-3 sm:shadow-inner">
+									<div className="h-2.5 w-full overflow-hidden rounded-full bg-gray-100 dark:bg-white/10 sm:h-3 sm:shadow-inner">
 										<div
 											className={`h-full rounded-full transition-all duration-1000 ease-out ${activeSkillData.level === null ? "bg-gradient-to-r from-green-300 via-green-400 to-yellow-500" : "bg-gradient-to-r from-green-400 to-blue-500"}`}
 											style={{ width: `${activeSkillData.level ?? 35}%` }}
 										/>
 									</div>
-									<p className="mt-4 text-xs leading-5 text-gray-600 sm:mt-5 sm:text-sm sm:leading-6">
+									<p className="mt-4 text-xs leading-5 text-gray-600 dark:text-gray-300 sm:mt-5 sm:text-sm sm:leading-6">
 										{activeSkillData.level === null
 											? "Currently studying and experimenting with this stack in new builds."
 											: "Comfortable using this in real projects, from implementation details to polished UI decisions."}
@@ -339,7 +336,7 @@ const Skills = () => {
 											{activeSkillData.language.map((tech) => (
 												<span
 													key={tech}
-													className="rounded-full border border-gray-300 bg-white px-3 py-1 text-xs font-semibold text-gray-700"
+													className="rounded-full border border-gray-300 bg-white px-3 py-1 text-xs font-semibold text-gray-700 dark:border-white/20 dark:bg-black/35 dark:text-gray-200"
 												>
 													{tech}
 												</span>
@@ -357,3 +354,6 @@ const Skills = () => {
 };
 
 export default Skills;
+
+
+

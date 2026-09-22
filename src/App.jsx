@@ -42,6 +42,24 @@ function RevealSection({ children, delay = 0 }) {
 }
 
 function App() {
+	const [isDarkMode, setIsDarkMode] = useState(() => {
+		if (typeof window === "undefined") return false;
+		return window.matchMedia("(prefers-color-scheme: dark)").matches;
+	});
+
+	useEffect(() => {
+		document.documentElement.classList.toggle("dark", isDarkMode);
+	}, [isDarkMode]);
+
+	useEffect(() => {
+		const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+		const handleThemeChange = (event) => setIsDarkMode(event.matches);
+
+		mediaQuery.addEventListener("change", handleThemeChange);
+
+		return () => mediaQuery.removeEventListener("change", handleThemeChange);
+	}, []);
+
 	useEffect(() => {
 		if ("scrollRestoration" in window.history) {
 			window.history.scrollRestoration = "manual";
@@ -54,7 +72,10 @@ function App() {
 		<React.Fragment>
 			<div className="animate-bgGradient"></div>
 
-			<PortfolioLayout>
+			<PortfolioLayout
+				isDarkMode={isDarkMode}
+				onToggleDarkMode={() => setIsDarkMode((current) => !current)}
+			>
 				<RevealSection>
 					<Home />
 				</RevealSection>

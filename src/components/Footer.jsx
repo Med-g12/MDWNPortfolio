@@ -25,9 +25,9 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <div id="footer" className="bg-black science-gothic py-5 sm:py-8 lg:py-5 px-5 sm:px-8 lg:px-10 text-white">
+        <div id="footer" className="science-gothic bg-black px-5 py-5 text-white transition-colors duration-300 sm:px-8 sm:py-8 lg:px-10 lg:py-5">
             <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-8 lg:gap-0">
-                <h1 className="text-4xl sm:text-bas sm:text-5xl lg:text-6xl mt-12 lg:mt-20 font-semibold text-green-200 text-center lg:text-left">
+                <h1 className="mt-12 text-center text-4xl font-semibold text-green-200 sm:text-bas sm:text-5xl lg:mt-20 lg:text-left lg:text-6xl">
                     Feel free to reach out.
                 </h1>
                 <div className="font-extralight leading-4 text-center lg:text-right">
@@ -44,11 +44,11 @@ const Footer = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-8 lg:gap-50 mt-8 lg:mt-20">
                             <div>
-                                <p className="font-semibold text-green-200 text-[13px] mb-2">Contact:</p>
+                                <p className="mb-2 text-[13px] font-semibold text-green-200">Contact:</p>
                                 <div className="flex flex-col justify-start gap-2">
                                     <a
                                         href="mailto:garmed172@gmail.com"
-                                        className="hover:text-green-300 transition-colors duration-300"
+                                        className="transition-colors duration-300 hover:text-green-300"
                                     >
                                         garmed172@gmail.com
                                     </a>
@@ -56,12 +56,12 @@ const Footer = () => {
                             </div>
 
                             <div className="flex flex-col justify-start gap-2">
-                                <p className="font-semibold text-green-200 text-[13px] mb-2">Connect:</p>
+                                <p className="mb-2 text-[13px] font-semibold text-green-200">Connect:</p>
                                 <a
                                     href="https://www.instagram.com/grdsemdwn/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="hover:text-green-300 transition-colors duration-300"
+                                    className="transition-colors duration-300 hover:text-green-300"
                                 >
                                     Instagram
                                 </a>
@@ -69,7 +69,7 @@ const Footer = () => {
                                     href="https://www.facebook.com/mdwn21"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="hover:text-green-300 transition-colors duration-300"
+                                    className="transition-colors duration-300 hover:text-green-300"
                                 >
                                     Facebook
                                 </a>
@@ -77,7 +77,7 @@ const Footer = () => {
                                     href="https://x.com/mdwn2211"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="hover:text-green-300 transition-colors duration-300"
+                                    className="transition-colors duration-300 hover:text-green-300"
                                 >
                                     X
                                 </a>
@@ -93,7 +93,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <p className="text-center mt-12 lg:mt-16 text-sm text-gray-500 font-light">
+            <p className="mt-12 text-center text-sm font-light text-gray-500 lg:mt-16">
                 © {currentYear} Medwin Gardose. All rights reserved.
             </p>
         </div>

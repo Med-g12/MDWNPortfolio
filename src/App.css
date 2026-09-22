@@ -20,6 +20,11 @@
 	z-index: -1;
 }
 
+.dark .animate-bgGradient {
+	background: linear-gradient(280deg, #000000, #04150f, #071307, #020712);
+	background-size: 350% 350%;
+}
+
 .section-reveal {
 	opacity: 0;
 	transform: translateY(42px) scale(0.98);

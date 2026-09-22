@@ -56,9 +56,9 @@ const Home = () => {
 			</header>
 
 			<section className="px-5 sm:hidden" aria-labelledby="mobile-home-title">
-				<div className="relative mx-auto min-h-[31rem] max-w-[22rem] overflow-visible p-2 pt-0 text-gray-900">
+				<div className="relative mx-auto min-h-[31rem] max-w-[22rem] overflow-visible p-2 pt-0 text-gray-900 dark:text-white">
 					<div className="relative z-10 flex justify-end">
-						<div className="relative -mr-7 -mt-8 h-64 w-[16.5rem] overflow-hidden rounded-l-full border-y border-l border-gray-200 bg-white/40 shadow-2xl">
+						<div className="relative -mr-7 -mt-8 h-64 w-[16.5rem] overflow-hidden rounded-l-full border-y border-l border-gray-200 bg-white/40 shadow-2xl dark:border-white/20 dark:bg-black/15">
 							<img
 								src={pfp}
 								alt="Medwin Gardose"
@@ -76,7 +76,7 @@ const Home = () => {
 							<br />
 							Gardose
 						</h1>
-						<p className="mt-4 max-w-[16rem] text-xs font-light leading-5 text-gray-600">
+						<p className="mt-4 max-w-[16rem] text-xs font-light leading-5 text-gray-600 dark:text-gray-300">
 							I build modern, responsive, and user-friendly websites with a
 							focus on clean interfaces and practical details.
 						</p>
@@ -86,7 +86,7 @@ const Home = () => {
 
 					<a
 						href="#projects"
-						className="relative z-10 mt-5 flex h-14 items-center justify-center rounded-full bg-green-200 text-sm font-semibold text-gray-900 shadow-lg transition hover:bg-green-300"
+						className="relative z-10 mt-5 flex h-14 items-center justify-center rounded-full bg-green-200 text-sm font-semibold text-gray-900 shadow-lg transition hover:bg-green-300 dark:bg-white dark:text-black dark:hover:bg-gray-200"
 					>
 						Discover work
 					</a>
@@ -99,3 +99,5 @@ const Home = () => {
 };
 
 export default Home;
+
+
