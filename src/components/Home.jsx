@@ -56,18 +56,18 @@ const Home = () => {
 			</header>
 
 			<section className="px-5 sm:hidden" aria-labelledby="mobile-home-title">
-				<div className="relative mx-auto min-h-[31rem] max-w-[22rem] overflow-hidden p-2 text-gray-900">
+				<div className="relative mx-auto min-h-[31rem] max-w-[22rem] overflow-visible p-2 pt-0 text-gray-900">
 					<div className="relative z-10 flex justify-end">
-						<div className="relative h-52 w-52 overflow-hidden rounded-full border border-gray-200 bg-white/40 shadow-2xl">
+						<div className="relative -mr-7 -mt-8 h-64 w-[16.5rem] overflow-hidden rounded-l-full border-y border-l border-gray-200 bg-white/40 shadow-2xl">
 							<img
 								src={pfp}
 								alt="Medwin Gardose"
-								className="h-full w-full object-cover"
+								className="h-full w-full object-cover object-center"
 							/>
 						</div>
 					</div>
 
-					<div className="relative z-10 -mt-5">
+					<div className="relative z-10 -mt-3">
 						<h1
 							id="mobile-home-title"
 							className="text-5xl font-extralight leading-[2.9rem] tracking-normal"
@@ -82,11 +82,11 @@ const Home = () => {
 						</p>
 					</div>
 
-					<SkillsCarousel compact className="relative z-10 mt-7" />
+					<SkillsCarousel compact className="relative z-10 mt-5" />
 
 					<a
 						href="#projects"
-						className="relative z-10 mt-6 flex h-14 items-center justify-center rounded-full bg-green-200 text-sm font-semibold text-gray-900 shadow-lg transition hover:bg-green-300"
+						className="relative z-10 mt-5 flex h-14 items-center justify-center rounded-full bg-green-200 text-sm font-semibold text-gray-900 shadow-lg transition hover:bg-green-300"
 					>
 						Discover work
 					</a>
