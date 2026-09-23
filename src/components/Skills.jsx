@@ -11,6 +11,19 @@ import nuxtLogo from "../assets/nuxtlogo.svg";
 import nextLogo from "../assets/next.webp";
 import supabaseLogo from "../assets/supabase.webp";
 
+const SkillLogo = ({ skill, className }) => (
+	<span className={`relative flex items-center justify-center ${className}`}>
+		{skill.logo === nextLogo && (
+			<span className="absolute -inset-3 hidden rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.65)_0%,_rgba(255,255,255,0.28)_38%,_rgba(255,255,255,0)_62%)] dark:block" />
+		)}
+		<img
+			src={skill.logo}
+			alt=""
+			className="relative z-10 h-full w-full object-contain"
+		/>
+	</span>
+);
+
 const Skills = () => {
 	const [activeSkill, setActiveSkill] = useState(null);
 	const [mobileSkillPage, setMobileSkillPage] = useState(0);
@@ -161,10 +174,9 @@ const Skills = () => {
 										<span className="self-start rounded-full bg-gray-100 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-gray-500 dark:bg-white/10 dark:text-gray-300">
 											{skill.category}
 										</span>
-										<img
-											src={skill.logo}
-											alt=""
-											className="h-8 w-8 object-contain transition-transform duration-500 group-hover:scale-110"
+										<SkillLogo
+											skill={skill}
+											className="h-8 w-8 transition-transform duration-500 group-hover:scale-110"
 										/>
 										<div className="w-full">
 											<span
@@ -209,10 +221,9 @@ const Skills = () => {
 									<span className="self-start rounded-full bg-gray-100 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-gray-500 dark:bg-white/10 dark:text-gray-300 sm:px-2.5 sm:py-1 sm:text-[10px]">
 										{skill.category}
 									</span>
-									<img
-										src={skill.logo}
-										alt=""
-										className="h-8 w-8 object-contain transition-transform duration-500 group-hover:scale-110 sm:h-12 sm:w-12"
+									<SkillLogo
+										skill={skill}
+										className="h-8 w-8 transition-transform duration-500 group-hover:scale-110 sm:h-12 sm:w-12"
 									/>
 									<div className="w-full">
 										<span
@@ -259,10 +270,9 @@ const Skills = () => {
 											onClick={() => setActiveSkill(index)}
 											aria-label={`Show ${skill.name} skill level`}
 										>
-											<img
-												src={skill.logo}
-												alt=""
-												className="h-7 w-7 object-contain transition-transform duration-500 group-hover:scale-110 sm:h-10 sm:w-10"
+											<SkillLogo
+												skill={skill}
+												className="h-7 w-7 transition-transform duration-500 group-hover:scale-110 sm:h-10 sm:w-10"
 											/>
 											<span
 												className={`whitespace-nowrap text-[11px] font-semibold sm:text-xs ${skill.color}`}
@@ -289,10 +299,9 @@ const Skills = () => {
 									}
 									aria-label={`Show next skill after ${activeSkillData.name}`}
 								>
-									<img
-										src={activeSkillData.logo}
-										alt=""
-										className="h-14 w-14 object-contain transition-transform duration-500 group-hover:scale-110 sm:h-24 sm:w-24"
+									<SkillLogo
+										skill={activeSkillData}
+										className="h-14 w-14 transition-transform duration-500 group-hover:scale-110 sm:h-24 sm:w-24"
 									/>
 									<span
 										className={`text-center text-xl font-bold sm:text-2xl ${activeSkillData.color}`}

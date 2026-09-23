@@ -20,12 +20,17 @@ const CarouselItem = ({ item, compact = false }) => (
 				: "h-12 w-12 flex-none sm:h-24 sm:w-24 md:h-28 md:w-28 lg:mx-8 lg:h-16 lg:w-16"
 		}
 	>
-		<img
-			src={item.img}
-			alt={`${item.name} logo`}
-			className="w-full h-full object-contain select-none pointer-events-none"
-			loading="lazy"
-		/>
+		<span className="relative flex h-full w-full items-center justify-center">
+			{item.name === "Next" && (
+				<span className="absolute -inset-3 hidden rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.65)_0%,_rgba(255,255,255,0.28)_38%,_rgba(255,255,255,0)_62%)] dark:block" />
+			)}
+			<img
+				src={item.img}
+				alt={`${item.name} logo`}
+				className="relative z-10 w-full h-full object-contain select-none pointer-events-none"
+				loading="lazy"
+			/>
+		</span>
 	</li>
 );
 
@@ -66,7 +71,7 @@ const SkillsCarousel = React.forwardRef(({ compact = false, className = "" }, re
 				}
 			>
 				<ul
-					className={`m-0 flex list-none p-0 animate-marquee ${compact ? "gap-5" : "gap-7 sm:gap-10 md:gap-16 lg:gap-0"}`}
+					className={`m-0 flex list-none px-0 py-3 animate-marquee ${compact ? "gap-5" : "gap-7 sm:gap-10 md:gap-16 lg:gap-0"}`}
 					aria-label="Skills Marquee"
 				>
 					{extendedItems.map((item, index) => (
