@@ -76,9 +76,7 @@ function App() {
 				isDarkMode={isDarkMode}
 				onToggleDarkMode={() => setIsDarkMode((current) => !current)}
 			>
-				<RevealSection>
-					<Home />
-				</RevealSection>
+				<Home />
 				<RevealSection delay={100}>
 					<About />
 				</RevealSection>

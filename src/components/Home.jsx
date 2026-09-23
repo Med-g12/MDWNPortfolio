@@ -1,26 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import pfp from "../assets/portpfp.jpg";
 import SkillsCarousel from "./SkillsCarousel";
 
 const Home = () => {
-	const headingRef = useRef(null);
-	const profileRef = useRef(null);
-	const carouselRef = useRef(null);
+	const [isLoaded, setIsLoaded] = useState(false);
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
-			if (headingRef.current) {
-				headingRef.current.classList.remove("opacity-0", "-translate-x-5");
-			}
-		}, 100);
-		return () => clearTimeout(timer);
-	}, []);
-
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			if (profileRef.current) {
-				profileRef.current.classList.remove("opacity-0", "translate-x-5");
-			}
+			setIsLoaded(true);
 		}, 100);
 		return () => clearTimeout(timer);
 	}, []);
@@ -29,8 +16,9 @@ const Home = () => {
 		<main id="home" className="mt-28 sm:mt-20 lg:mt-10">
 			<header className="relative hidden h-full w-full flex-col items-end justify-between px-5 sm:flex sm:px-8 lg:flex-row lg:px-0">
 				<div
-					ref={headingRef}
-					className="w-full -translate-x-5 text-center opacity-0 transition-all duration-700 ease-out animate-on-load lg:w-auto lg:text-left"
+					className={`w-full text-center transition-all duration-700 ease-out animate-on-load lg:w-auto lg:text-left ${
+						isLoaded ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"
+					}`}
 				>
 					<h1 className="font-extralight text-[68px] leading-[62px] sm:mb-8 sm:text-sm sm:leading-[100px] md:text-[130px] md:leading-[120px] lg:text-[150px] lg:leading-[145px]">
 						Medwin
@@ -39,8 +27,9 @@ const Home = () => {
 				</div>
 
 				<section
-					ref={profileRef}
-					className="mx-auto mt-8 flex w-full max-w-md translate-x-5 flex-col items-center opacity-0 transition-all duration-700 ease-out lg:mx-0 lg:mb-8 lg:mt-10 lg:gap-60 lg:items-end"
+					className={`mx-auto mt-8 flex w-full max-w-md flex-col items-center transition-all duration-700 ease-out lg:mx-0 lg:mb-8 lg:mt-10 lg:gap-60 lg:items-end ${
+						isLoaded ? "translate-x-0 opacity-100" : "translate-x-5 opacity-0"
+					}`}
 				>
 					<img
 						src={pfp}
@@ -55,19 +44,31 @@ const Home = () => {
 				</section>
 			</header>
 
-			<section className="px-5 sm:hidden" aria-labelledby="mobile-home-title">
-				<div className="relative mx-auto min-h-[31rem] max-w-[22rem] overflow-visible p-2 pt-0 text-gray-900 dark:text-white">
-					<div className="relative z-10 flex justify-end">
-						<div className="relative -mr-7 -mt-8 h-64 w-[16.5rem] overflow-hidden rounded-l-full border-y border-l border-gray-200 bg-white/40 shadow-2xl dark:border-white/20 dark:bg-black/15">
-							<img
-								src={pfp}
-								alt="Medwin Gardose"
-								className="h-full w-full object-cover object-center"
-							/>
-						</div>
+			<section className="relative overflow-x-clip px-5 sm:hidden" aria-labelledby="mobile-home-title">
+				<div
+					className={`relative z-10 -mr-5 flex justify-end transition-all duration-700 ease-out ${
+						isLoaded
+							? "translate-x-0 opacity-100"
+							: "translate-x-8 opacity-0"
+					}`}
+				>
+					<div className="-mt-8 h-64 w-[16.5rem] overflow-hidden rounded-l-full border-y border-l border-gray-200 bg-white/40 shadow-2xl dark:border-white/20 dark:bg-black/15">
+						<img
+							src={pfp}
+							alt="Medwin Gardose"
+							className="h-full w-full object-cover object-center"
+						/>
 					</div>
+				</div>
 
-					<div className="relative z-10 -mt-3">
+				<div className="relative mx-auto max-w-[22rem] text-gray-900 dark:text-white">
+					<div
+						className={`relative z-10 mt-6 transition-all duration-700 ease-out ${
+							isLoaded
+								? "translate-x-0 opacity-100"
+								: "-translate-x-8 opacity-0"
+						}`}
+					>
 						<h1
 							id="mobile-home-title"
 							className="text-5xl font-extralight leading-[2.9rem] tracking-normal"
@@ -82,18 +83,29 @@ const Home = () => {
 						</p>
 					</div>
 
-					<SkillsCarousel compact className="relative z-10 mt-5" />
+					<SkillsCarousel
+						compact
+						className={`relative z-10 mt-5 transition-all duration-700 delay-150 ease-out ${
+							isLoaded
+								? "translate-y-0 scale-100 opacity-100"
+								: "translate-y-4 scale-95 opacity-0"
+						}`}
+					/>
 
 					<a
 						href="#projects"
-						className="relative z-10 mt-5 flex h-14 items-center justify-center rounded-full bg-green-200 text-sm font-semibold text-gray-900 shadow-lg transition hover:bg-green-300 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+						className={`relative z-10 mt-5 flex h-14 items-center justify-center rounded-full bg-green-200 text-sm font-semibold text-gray-900 shadow-lg transition-all duration-700 delay-300 ease-out hover:bg-green-300 dark:bg-white dark:text-black dark:hover:bg-gray-200 ${
+							isLoaded
+								? "translate-y-0 scale-100 opacity-100"
+								: "translate-y-4 scale-95 opacity-0"
+						}`}
 					>
 						Discover work
 					</a>
 				</div>
 			</section>
 
-			<SkillsCarousel ref={carouselRef} className="hidden sm:block" />
+			<SkillsCarousel className="hidden sm:block" />
 		</main>
 	);
 };
