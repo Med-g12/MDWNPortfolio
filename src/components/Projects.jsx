@@ -104,17 +104,105 @@ const ProjectCard = ({
 		return () => container.removeEventListener("wheel", onWheel);
 	}, [isActive]);
 
-	/* ── Direct drag handlers (mouse & touch) ── */
+	/* ── Touch gesture disambiguation for mobile (both horizontal swipe & vertical pan) ── */
+	useEffect(() => {
+		const imgEl = imgRef.current;
+		if (!imgEl || !isActive) return;
+
+		let startX = 0;
+		let startY = 0;
+		let prevY = 0;
+		let lockDirection = null; // null | 'vertical' | 'horizontal'
+
+		const onTouchStart = (e) => {
+			if (e.touches.length !== 1) return;
+			const touch = e.touches[0];
+			startX = touch.clientX;
+			startY = touch.clientY;
+			prevY = touch.clientY;
+			lockDirection = null;
+			pan.current.isDown = true;
+			pan.current.didDrag = false;
+		};
+
+		const onTouchMove = (e) => {
+			if (!pan.current.isDown || e.touches.length !== 1) return;
+			const touch = e.touches[0];
+			const currentX = touch.clientX;
+			const currentY = touch.clientY;
+
+			if (lockDirection === null) {
+				const totalDx = Math.abs(currentX - startX);
+				const totalDy = Math.abs(currentY - startY);
+
+				if (totalDx > totalDy && totalDx > 6) {
+					// Horizontal swipe: let carousel scroll natively
+					lockDirection = "horizontal";
+					pan.current.isDown = false;
+					return;
+				} else if (totalDy > totalDx && totalDy > 6) {
+					// Vertical drag on image: lock into image panning
+					lockDirection = "vertical";
+					pan.current.dragging = true;
+					pan.current.didDrag = true;
+					prevY = currentY;
+				}
+			}
+
+			if (lockDirection === "vertical") {
+				if (e.cancelable) e.preventDefault();
+				const dy = currentY - prevY;
+				prevY = currentY;
+
+				const containerH = Math.max(100, imgContainerRef.current?.offsetHeight || 400);
+				const deltaPercent = -(dy / containerH) * 100;
+
+				if (!isNaN(deltaPercent)) {
+					pan.current.posY = Math.max(0, Math.min(100, pan.current.posY + deltaPercent));
+					if (dy !== 0) {
+						pan.current.direction = dy < 0 ? 1 : -1;
+					}
+					pan.current.lastTime = null;
+					if (imgRef.current) {
+						imgRef.current.style.objectPosition = `50% ${pan.current.posY}%`;
+					}
+				}
+			}
+		};
+
+		const onTouchEnd = () => {
+			pan.current.isDown = false;
+			pan.current.dragging = false;
+			lockDirection = null;
+			pan.current.lastTime = null;
+		};
+
+		imgEl.addEventListener("touchstart", onTouchStart, { passive: true });
+		imgEl.addEventListener("touchmove", onTouchMove, { passive: false });
+		imgEl.addEventListener("touchend", onTouchEnd, { passive: true });
+		imgEl.addEventListener("touchcancel", onTouchEnd, { passive: true });
+
+		return () => {
+			imgEl.removeEventListener("touchstart", onTouchStart);
+			imgEl.removeEventListener("touchmove", onTouchMove);
+			imgEl.removeEventListener("touchend", onTouchEnd);
+			imgEl.removeEventListener("touchcancel", onTouchEnd);
+		};
+	}, [isActive]);
+
+	/* ── Direct drag handlers (mouse & desktop) ── */
 	const handlePointerDown = useCallback(
 		(e) => {
-			if (!isActive) return;
+			if (!isActive || e.pointerType === "touch") return; // Touch handled by dedicated touch listener
+			e.stopPropagation();
 			const p = pan.current;
 			p.isDown = true;
 			p.dragging = false;
 			p.didDrag = false;
-			p.startX = e.clientX;
-			p.startY = e.clientY;
-			p.startPosY = p.posY;
+			p.prevClientY = e.clientY;
+			try {
+				e.currentTarget.setPointerCapture(e.pointerId);
+			} catch (_) {}
 		},
 		[isActive]
 	);
@@ -123,37 +211,32 @@ const ProjectCard = ({
 		const p = pan.current;
 		if (!p.isDown) return;
 
-		const deltaX = Math.abs(e.clientX - p.startX);
-		const deltaY = e.clientY - p.startY;
-		const absDeltaY = Math.abs(deltaY);
+		const dy = e.clientY - (p.prevClientY ?? e.clientY);
+		p.prevClientY = e.clientY;
 
-		// If user is swiping horizontally, yield gesture to horizontal carousel
-		if (!p.dragging) {
-			if (deltaX > absDeltaY && deltaX > 6) {
-				p.isDown = false; // abort image drag so mobile horizontal scrolling flows freely
-				return;
-			}
-			if (absDeltaY > 6 && absDeltaY >= deltaX) {
-				p.dragging = true;
-				p.didDrag = true;
-				try {
-					e.currentTarget.setPointerCapture(e.pointerId);
-				} catch (_) { }
-				if (imgRef.current) imgRef.current.style.cursor = "grabbing";
-			}
+		if (!p.dragging && Math.abs(dy) > 2) {
+			p.dragging = true;
+			p.didDrag = true;
+			if (imgRef.current) imgRef.current.style.cursor = "grabbing";
 		}
 
 		if (p.dragging) {
 			e.stopPropagation();
-			const containerH = imgContainerRef.current?.offsetHeight || 400;
-			const deltaPercent = -(deltaY / containerH) * 100;
-			p.posY = Math.max(0, Math.min(100, p.startPosY + deltaPercent));
-			p.lastTime = null;
-			if (imgRef.current) imgRef.current.style.objectPosition = `50% ${p.posY}%`;
+			const containerH = Math.max(100, imgContainerRef.current?.offsetHeight || 400);
+			const deltaPercent = -(dy / containerH) * 100;
+			if (!isNaN(deltaPercent)) {
+				p.posY = Math.max(0, Math.min(100, p.posY + deltaPercent));
+				if (dy !== 0) {
+					p.direction = dy < 0 ? 1 : -1;
+				}
+				p.lastTime = null;
+				if (imgRef.current) imgRef.current.style.objectPosition = `50% ${p.posY}%`;
+			}
 		}
 	}, []);
 
 	const handlePointerUp = useCallback((e) => {
+		if (e.pointerType === "touch") return;
 		const p = pan.current;
 		p.isDown = false;
 		if (p.dragging) {
@@ -163,7 +246,7 @@ const ProjectCard = ({
 		}
 		try {
 			e.currentTarget.releasePointerCapture(e.pointerId);
-		} catch (_) { }
+		} catch (_) {}
 	}, []);
 
 	const handleImgClick = useCallback(

@@ -58,6 +58,14 @@ const Footer = () => {
                             <div className="flex flex-col justify-start gap-2">
                                 <p className="mb-2 text-[13px] font-semibold text-green-200">Connect:</p>
                                 <a
+                                    href="https://github.com/Med-g12"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="transition-colors duration-300 hover:text-green-300"
+                                >
+                                    GitHub
+                                </a>
+                                <a
                                     href="https://www.instagram.com/grdsemdwn/"
                                     target="_blank"
                                     rel="noopener noreferrer"
