@@ -22,7 +22,7 @@ function RevealSection({ children, delay = 0 }) {
 					observer.unobserve(entry.target);
 				}
 			},
-			{ threshold: 0.15 },
+			{ threshold: 0.05, rootMargin: "0px 0px -20px 0px" },
 		);
 
 		observer.observe(section);
@@ -34,7 +34,7 @@ function RevealSection({ children, delay = 0 }) {
 		<div
 			ref={sectionRef}
 			className={`section-reveal ${isVisible ? "section-reveal--visible" : ""}`}
-			style={{ transitionDelay: `${delay}ms` }}
+			style={delay ? { transitionDelay: `${delay}ms` } : undefined}
 		>
 			{children}
 		</div>
@@ -77,13 +77,13 @@ function App() {
 				onToggleDarkMode={() => setIsDarkMode((current) => !current)}
 			>
 				<Home />
-				<RevealSection delay={100}>
+				<RevealSection>
 					<About />
 				</RevealSection>
-				<RevealSection delay={100}>
+				<RevealSection>
 					<Skills />
 				</RevealSection>
-				<RevealSection delay={100}>
+				<RevealSection>
 					<Projects />
 				</RevealSection>
 			</PortfolioLayout>
