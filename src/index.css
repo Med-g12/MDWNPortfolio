@@ -56,11 +56,15 @@
 
 @keyframes project-image-pan {
 	from {
-		transform: translateY(0);
+		object-position: 50% 0%;
 	}
 	to {
-		transform: translateY(-28%);
+		object-position: 50% 100%;
 	}
+}
+
+.project-img-pan {
+	animation: project-image-pan 12s ease-in-out infinite alternate;
 }
 
 .skill-carousel-track {

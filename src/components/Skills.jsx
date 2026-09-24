@@ -184,12 +184,14 @@ const Skills = () => {
 											>
 												{skill.name}
 											</span>
-											<div className="mt-2 h-1 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10">
-												<div
-													className="h-full rounded-full bg-gradient-to-r from-green-400 to-blue-400 transition-all duration-500"
-													style={{ width: `${skill.level ?? 35}%` }}
-												/>
-											</div>
+											{skill.level !== null && (
+												<div className="mt-2 h-1 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10">
+													<div
+														className="h-full rounded-full bg-gradient-to-r from-green-400 to-blue-400 transition-all duration-500"
+														style={{ width: `${skill.level}%` }}
+													/>
+												</div>
+											)}
 										</div>
 									</button>
 								);
@@ -231,12 +233,14 @@ const Skills = () => {
 										>
 											{skill.name}
 										</span>
-										<div className="mt-2 h-1 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10 sm:mt-3 sm:h-1.5">
-											<div
-												className="h-full rounded-full bg-gradient-to-r from-green-400 to-blue-400 transition-all duration-500"
-												style={{ width: `${skill.level ?? 35}%` }}
-											/>
-										</div>
+										{skill.level !== null && (
+											<div className="mt-2 h-1 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10 sm:mt-3 sm:h-1.5">
+												<div
+													className="h-full rounded-full bg-gradient-to-r from-green-400 to-blue-400 transition-all duration-500"
+													style={{ width: `${skill.level}%` }}
+												/>
+											</div>
+										)}
 									</div>
 								</button>
 							))}
@@ -314,28 +318,28 @@ const Skills = () => {
 								</button>
 
 								<div className="flex flex-col justify-center">
-									<div className="mb-5">
-										<p className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-400 dark:text-gray-500 sm:text-sm">
-											Proficiency
-										</p>
-										<div className="mt-2 flex items-end gap-2">
-											<span className="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
-												{activeSkillData.level !== null
-													? activeSkillData.level
-													: "35"}
-											</span>
-											<span className="pb-1.5 text-base font-semibold text-gray-400 dark:text-gray-500 sm:pb-2 sm:text-lg">
-												{activeSkillData.level !== null ? "%" : "% exploring"}
-											</span>
+									{activeSkillData.level !== null && (
+										<div className="mb-5">
+											<p className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-400 dark:text-gray-500 sm:text-sm">
+												Proficiency
+											</p>
+											<div className="mt-2 flex items-end gap-2">
+												<span className="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
+													{activeSkillData.level}
+												</span>
+												<span className="pb-1.5 text-base font-semibold text-gray-400 dark:text-gray-500 sm:pb-2 sm:text-lg">%</span>
+											</div>
 										</div>
-									</div>
-									<div className="h-2.5 w-full overflow-hidden rounded-full bg-gray-100 dark:bg-white/10 sm:h-3 sm:shadow-inner">
-										<div
-											className={`h-full rounded-full transition-all duration-1000 ease-out ${activeSkillData.level === null ? "bg-gradient-to-r from-green-300 via-green-400 to-yellow-500" : "bg-gradient-to-r from-green-400 to-blue-500"}`}
-											style={{ width: `${activeSkillData.level ?? 35}%` }}
-										/>
-									</div>
-									<p className="mt-4 text-xs leading-5 text-gray-600 dark:text-gray-300 sm:mt-5 sm:text-sm sm:leading-6">
+									)}
+									{activeSkillData.level !== null && (
+										<div className="h-2.5 w-full overflow-hidden rounded-full bg-gray-100 dark:bg-white/10 sm:h-3 sm:shadow-inner">
+											<div
+												className="h-full rounded-full transition-all duration-1000 ease-out bg-gradient-to-r from-green-400 to-blue-500"
+												style={{ width: `${activeSkillData.level}%` }}
+											/>
+										</div>
+									)}
+									<p className={`text-xs leading-5 text-gray-600 dark:text-gray-300 sm:text-sm sm:leading-6 ${activeSkillData.level !== null ? "mt-4 sm:mt-5" : ""}`}>
 										{activeSkillData.level === null
 											? "Currently studying and experimenting with this stack in new builds."
 											: "Comfortable using this in real projects, from implementation details to polished UI decisions."}
