@@ -48,7 +48,7 @@ const ProjectCard = ({
 			p.isDown = false;
 			p.dragging = false;
 			p.didDrag = false;
-			if (imgRef.current) imgRef.current.style.objectPosition = "";
+			if (imgRef.current) imgRef.current.style.objectPosition = "50% 0%";
 			return;
 		}
 
@@ -312,7 +312,7 @@ const ProjectCard = ({
 						onPointerUp={handlePointerUp}
 						onPointerCancel={handlePointerUp}
 						onClick={handleImgClick}
-						className={`w-full h-full object-cover select-none ${isActive ? "cursor-grab active:cursor-grabbing" : ""}`}
+						className={`w-full h-full object-cover object-top select-none ${isActive ? "cursor-grab active:cursor-grabbing" : ""}`}
 					/>
 					{/* Scroll/drag hint overlay */}
 					{isActive && (
