@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import pfp from "../assets/portpfp.jpg";
+import pfp from "../assets/abtmeimg.jpg";
 import SkillsCarousel from "./SkillsCarousel";
 
 const Home = () => {
