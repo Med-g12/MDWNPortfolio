@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import figmaLogo from "../assets/figmalogo.png";
 import htmlLogo from "../assets/htmllogo.png";
 import tailwindLogo from "../assets/tailwindlogo.png";
@@ -27,6 +27,7 @@ const SkillLogo = ({ skill, className }) => (
 const Skills = () => {
 	const [activeSkill, setActiveSkill] = useState(null);
 	const [mobileSkillPage, setMobileSkillPage] = useState(0);
+	const sliderRef = useRef(null);
 
 	const skills = [
 		{
@@ -126,10 +127,36 @@ const Skills = () => {
 	const activeSkillData = activeSkill !== null ? skills[activeSkill] : null;
 	const skillsPerMobilePage = 4;
 	const mobileSkillPages = Math.ceil(skills.length / skillsPerMobilePage);
-	const visibleMobileSkills = skills.slice(
-		mobileSkillPage * skillsPerMobilePage,
-		mobileSkillPage * skillsPerMobilePage + skillsPerMobilePage,
+
+	const mobilePages = Array.from({ length: mobileSkillPages }, (_, pageIndex) =>
+		skills.slice(
+			pageIndex * skillsPerMobilePage,
+			pageIndex * skillsPerMobilePage + skillsPerMobilePage
+		)
 	);
+
+	const scrollToPage = (pageIndex) => {
+		if (sliderRef.current) {
+			const width = sliderRef.current.clientWidth;
+			sliderRef.current.scrollTo({
+				left: pageIndex * width,
+				behavior: "smooth",
+			});
+			setMobileSkillPage(pageIndex);
+		}
+	};
+
+	const handleScroll = () => {
+		if (sliderRef.current) {
+			const width = sliderRef.current.clientWidth;
+			if (width > 0) {
+				const newPage = Math.round(sliderRef.current.scrollLeft / width);
+				if (newPage !== mobileSkillPage && newPage >= 0 && newPage < mobileSkillPages) {
+					setMobileSkillPage(newPage);
+				}
+			}
+		}
+	};
 
 	return (
 		<div id="skills" className="my-20 lg:my-40 px-5 sm:px-8 lg:px-0">
@@ -157,59 +184,77 @@ const Skills = () => {
 
 				{activeSkill === null ? (
 					<>
-						<div className="grid grid-cols-2 gap-3 sm:gap-4 lg:hidden">
-							{visibleMobileSkills.map((skill, pageIndex) => {
-								const skillIndex =
-									mobileSkillPage * skillsPerMobilePage + pageIndex;
+						{/* Swipable Scroll-Snap Carousel for Mobile & Tablet */}
+						<div
+							ref={sliderRef}
+							onScroll={handleScroll}
+							className="flex w-full overflow-x-auto snap-x snap-mandatory scrollbar-none scroll-smooth touch-pan-x -mx-1 px-1 lg:hidden"
+							style={{ WebkitOverflowScrolling: "touch" }}
+						>
+							{mobilePages.map((pageSkills, pageIndex) => (
+								<div
+									key={pageIndex}
+									className="w-full flex-none snap-start grid grid-cols-2 gap-3 sm:gap-4 px-1"
+								>
+									{pageSkills.map((skill, itemIndex) => {
+										const globalIndex = pageIndex * skillsPerMobilePage + itemIndex;
 
-								return (
-									<button
-										key={skill.name}
-										type="button"
-										className="group relative flex min-h-24 sm:min-h-32 flex-col items-center justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white/85 dark:border-white/20 dark:bg-black/30 p-3 sm:p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400"
-										onClick={() => setActiveSkill(skillIndex)}
-										aria-label={`Show ${skill.name} skill level`}
-									>
-										<span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-green-300 via-cyan-300 to-blue-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-										<span className="self-start rounded-full bg-gray-100 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-gray-500 dark:bg-white/10 dark:text-gray-300">
-											{skill.category}
-										</span>
-										<SkillLogo
-											skill={skill}
-											className="h-8 w-8 sm:h-10 sm:w-10 transition-transform duration-500 group-hover:scale-110"
-										/>
-										<div className="w-full">
-											<span
-												className={`block text-center text-xs sm:text-sm font-semibold ${skill.color}`}
+										return (
+											<button
+												key={skill.name}
+												type="button"
+												className="group relative flex min-h-24 sm:min-h-32 flex-col items-center justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white/85 dark:border-white/20 dark:bg-black/30 p-3 sm:p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400 cursor-pointer"
+												onClick={() => setActiveSkill(globalIndex)}
+												aria-label={`Show ${skill.name} skill level`}
 											>
-												{skill.name}
-											</span>
-											{skill.level !== null && (
-												<div className="mt-2 h-1 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10 sm:h-1.5">
-													<div
-														className="h-full rounded-full bg-gradient-to-r from-green-400 to-blue-400 transition-all duration-500"
-														style={{ width: `${skill.level}%` }}
-													/>
+												<span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-green-300 via-cyan-300 to-blue-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+												<span className="self-start rounded-full bg-gray-100 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-gray-500 dark:bg-white/10 dark:text-gray-300">
+													{skill.category}
+												</span>
+												<SkillLogo
+													skill={skill}
+													className="h-8 w-8 sm:h-10 sm:w-10 transition-transform duration-500 group-hover:scale-110"
+												/>
+												<div className="w-full">
+													<span
+														className={`block text-center text-xs sm:text-sm font-semibold ${skill.color}`}
+													>
+														{skill.name}
+													</span>
+													{skill.level !== null && (
+														<div className="mt-2 h-1 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10 sm:h-1.5">
+															<div
+																className="h-full rounded-full bg-gradient-to-r from-green-400 to-blue-400 transition-all duration-500"
+																style={{ width: `${skill.level}%` }}
+															/>
+														</div>
+													)}
 												</div>
-											)}
-										</div>
-									</button>
-								);
-							})}
+											</button>
+										);
+									})}
+								</div>
+							))}
 						</div>
 
+						{/* Interactive & Synced Pagination Dots */}
 						<div className="mt-5 flex items-center justify-center gap-2 lg:hidden">
 							{Array.from({ length: mobileSkillPages }).map((_, index) => (
 								<button
 									key={index}
 									type="button"
-									className={`h-1.5 rounded-full transition-all duration-300 ${mobileSkillPage === index ? "w-10 bg-gray-800 dark:bg-white" : "w-6 bg-gray-300 dark:bg-white/30"}`}
-									onClick={() => setMobileSkillPage(index)}
+									className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+										mobileSkillPage === index
+											? "w-10 bg-gray-800 dark:bg-white"
+											: "w-6 bg-gray-300 dark:bg-white/30 hover:bg-gray-400"
+									}`}
+									onClick={() => scrollToPage(index)}
 									aria-label={`Show skills page ${index + 1}`}
 								/>
 							))}
 						</div>
 
+						{/* Desktop Grid */}
 						<div className="hidden lg:grid lg:grid-cols-4 lg:gap-6">
 							{skills.map((skill, index) => (
 								<button
@@ -367,6 +412,3 @@ const Skills = () => {
 };
 
 export default Skills;
-
-
-
