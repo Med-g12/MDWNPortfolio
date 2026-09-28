@@ -13,12 +13,11 @@ const Home = () => {
 	}, []);
 
 	return (
-		<main id="home" className="pt-20">
+		<main id="home" className="pt-20 lg:pt-22">
 			<header className="relative hidden h-full w-full flex-col items-end justify-between px-5 lg:flex lg:flex-row lg:px-0">
 				<div
-					className={`w-full text-center transition-all duration-700 ease-out animate-on-load lg:w-auto lg:text-left ${
-						isLoaded ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"
-					}`}
+					className={`w-full text-center transition-all duration-700 ease-out animate-on-load lg:w-auto lg:text-left ${isLoaded ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"
+						}`}
 				>
 					<h1 className="font-extralight text-[68px] leading-[62px] lg:text-[150px] lg:leading-[145px]">
 						Medwin
@@ -27,9 +26,8 @@ const Home = () => {
 				</div>
 
 				<section
-					className={`mx-auto mt-8 flex w-full max-w-md flex-col items-center transition-all duration-700 ease-out lg:mx-0 lg:mb-8 lg:mt-10 lg:gap-60 lg:items-end ${
-						isLoaded ? "translate-x-0 opacity-100" : "translate-x-5 opacity-0"
-					}`}
+					className={`mx-auto mt-8 flex w-full max-w-md flex-col items-center transition-all duration-700 ease-out lg:mx-0 lg:mb-8 lg:mt-2 lg:gap-60 lg:items-end ${isLoaded ? "translate-x-0 opacity-100" : "translate-x-5 opacity-0"
+						}`}
 				>
 					<img
 						src={pfp}
@@ -46,11 +44,10 @@ const Home = () => {
 
 			<section className="relative overflow-x-clip px-5 lg:hidden" aria-labelledby="mobile-home-title">
 				<div
-					className={`relative z-10 -mr-5 flex justify-end transition-all duration-700 ease-out ${
-						isLoaded
-							? "translate-x-0 opacity-100"
-							: "translate-x-8 opacity-0"
-					}`}
+					className={`relative z-10 -mr-5 flex justify-end transition-all duration-700 ease-out ${isLoaded
+						? "translate-x-0 opacity-100"
+						: "translate-x-8 opacity-0"
+						}`}
 				>
 					<div className="h-64 sm:h-80 w-[16.5rem] sm:w-[22rem] overflow-hidden rounded-l-full border-y border-l border-gray-200 bg-white/40 shadow-2xl dark:border-white/20 dark:bg-black/15">
 						<img
@@ -63,11 +60,10 @@ const Home = () => {
 
 				<div className="relative max-w-[22rem] sm:max-w-[28rem] text-gray-900 dark:text-white">
 					<div
-						className={`relative z-10 mt-6 transition-all duration-700 ease-out ${
-							isLoaded
-								? "translate-x-0 opacity-100"
-								: "-translate-x-8 opacity-0"
-						}`}
+						className={`relative z-10 mt-6 transition-all duration-700 ease-out ${isLoaded
+							? "translate-x-0 opacity-100"
+							: "-translate-x-8 opacity-0"
+							}`}
 					>
 						<h1
 							id="mobile-home-title"
@@ -86,11 +82,10 @@ const Home = () => {
 					<div className="relative z-10 mt-6">
 						<a
 							href="#projects"
-							className={`inline-flex h-12 sm:h-11 items-center justify-center rounded-full bg-green-200 px-7 sm:px-6 text-xs sm:text-sm font-semibold text-gray-900 shadow-md transition-all duration-700 delay-150 ease-out hover:bg-green-300 dark:bg-white dark:text-black dark:hover:bg-gray-200 ${
-								isLoaded
-									? "translate-y-0 scale-100 opacity-100"
-									: "translate-y-4 scale-95 opacity-0"
-							}`}
+							className={`inline-flex h-12 sm:h-11 items-center justify-center rounded-full bg-green-200 px-7 sm:px-6 text-xs sm:text-sm font-semibold text-gray-900 shadow-md transition-all duration-700 delay-150 ease-out hover:bg-green-300 dark:bg-white dark:text-black dark:hover:bg-gray-200 ${isLoaded
+								? "translate-y-0 scale-100 opacity-100"
+								: "translate-y-4 scale-95 opacity-0"
+								}`}
 						>
 							Discover work
 						</a>
@@ -101,11 +96,10 @@ const Home = () => {
 				<div className="-mx-5 sm:-mx-8 mt-7">
 					<SkillsCarousel
 						compact
-						className={`w-full transition-all duration-700 delay-300 ease-out ${
-							isLoaded
-								? "translate-y-0 scale-100 opacity-100"
-								: "translate-y-4 scale-95 opacity-0"
-						}`}
+						className={`w-full transition-all duration-700 delay-300 ease-out ${isLoaded
+							? "translate-y-0 scale-100 opacity-100"
+							: "translate-y-4 scale-95 opacity-0"
+							}`}
 					/>
 				</div>
 			</section>

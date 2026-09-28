@@ -40,6 +40,20 @@ const NavigationBar = ({ isDarkMode, onToggleDarkMode }) => {
 
     const navItems = ['Home', 'About', 'Skills', 'Projects'];
 
+    const handleNavClick = (e, item) => {
+        if (item.toLowerCase() === 'home') {
+            e.preventDefault();
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+        }
+        setIsOpen(false);
+    };
+
+    const handleLogoClick = (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+        setIsOpen(false);
+    };
+
     return (
         <>
             <nav
@@ -50,7 +64,11 @@ const NavigationBar = ({ isDarkMode, onToggleDarkMode }) => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-1">
                     <div className="relative h-16 flex items-center px-4">
                         <div className="flex-shrink-0">
-                            <a href="/" className="text-xl font-bold text-gray-800 transition-colors dark:text-white">
+                            <a
+                                href="/"
+                                onClick={handleLogoClick}
+                                className="text-xl font-bold text-gray-800 transition-colors dark:text-white cursor-pointer"
+                            >
                                 MDWN
                             </a>
                         </div>
@@ -60,6 +78,7 @@ const NavigationBar = ({ isDarkMode, onToggleDarkMode }) => {
                                 <a
                                     key={item}
                                     href={`#${item.toLowerCase()}`}
+                                    onClick={(e) => handleNavClick(e, item)}
                                     ref={(el) => (linksRef.current[index] = el)}
                                     className="hover:text-gray-900 text-[16px] hover:scale-110 transition opacity-0 -translate-y-5 dark:hover:text-green-200"
                                 >
