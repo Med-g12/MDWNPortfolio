@@ -157,7 +157,7 @@ const Skills = () => {
 
 				{activeSkill === null ? (
 					<>
-						<div className="grid grid-cols-2 gap-3 sm:hidden">
+						<div className="grid grid-cols-2 gap-3 sm:gap-4 lg:hidden">
 							{visibleMobileSkills.map((skill, pageIndex) => {
 								const skillIndex =
 									mobileSkillPage * skillsPerMobilePage + pageIndex;
@@ -166,7 +166,7 @@ const Skills = () => {
 									<button
 										key={skill.name}
 										type="button"
-										className="group relative flex min-h-24 flex-col items-center justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white/85 dark:border-white/20 dark:bg-black/30 p-3 text-left transition-all duration-300 hover:-translate-y-1 hover:border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400"
+										className="group relative flex min-h-24 sm:min-h-32 flex-col items-center justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white/85 dark:border-white/20 dark:bg-black/30 p-3 sm:p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400"
 										onClick={() => setActiveSkill(skillIndex)}
 										aria-label={`Show ${skill.name} skill level`}
 									>
@@ -176,16 +176,16 @@ const Skills = () => {
 										</span>
 										<SkillLogo
 											skill={skill}
-											className="h-8 w-8 transition-transform duration-500 group-hover:scale-110"
+											className="h-8 w-8 sm:h-10 sm:w-10 transition-transform duration-500 group-hover:scale-110"
 										/>
 										<div className="w-full">
 											<span
-												className={`block text-center text-xs font-semibold ${skill.color}`}
+												className={`block text-center text-xs sm:text-sm font-semibold ${skill.color}`}
 											>
 												{skill.name}
 											</span>
 											{skill.level !== null && (
-												<div className="mt-2 h-1 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10">
+												<div className="mt-2 h-1 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10 sm:h-1.5">
 													<div
 														className="h-full rounded-full bg-gradient-to-r from-green-400 to-blue-400 transition-all duration-500"
 														style={{ width: `${skill.level}%` }}
@@ -198,7 +198,7 @@ const Skills = () => {
 							})}
 						</div>
 
-						<div className="mt-5 flex items-center justify-center gap-2 sm:hidden">
+						<div className="mt-5 flex items-center justify-center gap-2 lg:hidden">
 							{Array.from({ length: mobileSkillPages }).map((_, index) => (
 								<button
 									key={index}
@@ -210,7 +210,7 @@ const Skills = () => {
 							))}
 						</div>
 
-						<div className="hidden grid-cols-2 gap-3 sm:grid sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 lg:gap-6">
+						<div className="hidden lg:grid lg:grid-cols-4 lg:gap-6">
 							{skills.map((skill, index) => (
 								<button
 									key={skill.name}

@@ -26,23 +26,23 @@ const Footer = () => {
 
     return (
         <div id="footer" className="science-gothic bg-black px-5 py-5 text-white transition-colors duration-300 sm:px-8 sm:py-8 lg:px-10 lg:py-5">
-            <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-8 lg:gap-0">
-                <h1 className="mt-12 text-center text-4xl font-semibold text-green-200 sm:text-bas sm:text-5xl lg:mt-20 lg:text-left lg:text-6xl">
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4 lg:gap-0">
+                <h1 className="mt-8 sm:mt-12 text-left text-3xl sm:text-5xl font-semibold text-green-200 lg:mt-20 lg:text-6xl">
                     Feel free to reach out.
                 </h1>
-                <div className="font-extralight leading-4 text-center lg:text-right">
+                <div className="font-extralight leading-4 text-left lg:text-right">
                     <p className="text-green-200">Davao City, Philippines</p>
                     <p>{davaoTime}</p>
                 </div>
             </div>
 
-            <div className="mt-12 lg:mt-20">
-                <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12 lg:gap-0">
-                    <div className="w-full lg:w-auto text-center lg:text-left">
-                        <p className="w-full lg:w-200 tracking-wide font-light text-justify text-sm sm:text-base">
+            <div className="mt-8 sm:mt-12 lg:mt-20">
+                <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-0">
+                    <div className="w-full lg:w-auto text-left">
+                        <p className="w-full lg:w-200 tracking-wide font-light text-left text-sm sm:text-base">
                             You can get in touch with me or follow my work through any of the links provided below. I’m always open to new opportunities, collaborations, or just a friendly hello.
                         </p>
-                        <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-8 lg:gap-50 mt-8 lg:mt-20">
+                        <div className="flex flex-col sm:flex-row justify-start gap-8 lg:gap-50 mt-8 lg:mt-20">
                             <div>
                                 <p className="mb-2 text-[13px] font-semibold text-green-200">Contact:</p>
                                 <div className="flex flex-col justify-start gap-2">

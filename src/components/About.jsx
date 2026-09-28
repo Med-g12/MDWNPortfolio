@@ -20,7 +20,7 @@ const About = () => {
 			</div>
 
 			<div className="flex flex-col lg:flex-row justify-between mt-8 lg:mt-5 items-start lg:items-center gap-12 lg:gap-20">
-				<div className="w-full lg:w-auto flex justify-center lg:justify-start">
+				<div className="w-full lg:w-auto flex justify-start">
 					<img
 						src={abtmeImg}
 						alt="Medwin Gardose"
@@ -34,13 +34,13 @@ const About = () => {
 					</h1>
 					<button
 						type="button"
-						className="w-full cursor-pointer text-left text-base leading-relaxed text-gray-600 transition-colors hover:text-gray-800 focus:outline-none dark:text-gray-300 dark:hover:text-white sm:hidden"
+						className="w-full cursor-pointer text-left text-base leading-relaxed text-gray-600 transition-colors hover:text-gray-800 focus:outline-none dark:text-gray-300 dark:hover:text-white lg:hidden"
 						onClick={() => setIsExpanded((current) => !current)}
 						aria-expanded={isExpanded}
 					>
 						{isExpanded ? aboutText : previewText}
 					</button>
-					<p className="hidden text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:block sm:text-lg lg:w-160">
+					<p className="hidden text-base leading-relaxed text-gray-600 dark:text-gray-300 lg:block lg:text-lg lg:w-160">
 						{aboutText}
 					</p>
 					<a href="#footer">

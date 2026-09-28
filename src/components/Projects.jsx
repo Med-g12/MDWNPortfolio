@@ -511,8 +511,8 @@ const Projects = () => {
 
 			<section className="mt-8 lg:mt-5 pb-16 lg:pb-20">
 				<div className="max-w-7xl mx-auto">
-					<h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">My Projects</h2>
-					<p className="mb-10 text-center text-gray-600 dark:text-gray-300 lg:mb-12">
+					<h2 className="text-2xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 text-left">My Projects</h2>
+					<p className="mb-8 sm:mb-10 text-xs sm:text-base text-gray-600 dark:text-gray-300 text-left">
 						Things I've built so far
 					</p>
 

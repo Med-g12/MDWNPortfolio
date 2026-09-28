@@ -55,7 +55,7 @@ const NavigationBar = ({ isDarkMode, onToggleDarkMode }) => {
                             </a>
                         </div>
 
-                        <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex space-x-8 text-sm">
+                        <div className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex space-x-8 text-sm">
                             {navItems.map((item, index) => (
                                 <a
                                     key={item}
@@ -68,7 +68,7 @@ const NavigationBar = ({ isDarkMode, onToggleDarkMode }) => {
                             ))}
                         </div>
 
-                        <div className="ml-auto hidden items-center gap-3 md:flex">
+                        <div className="ml-auto hidden items-center gap-3 lg:flex">
                             <button
                                 type="button"
                                 onClick={onToggleDarkMode}
@@ -88,7 +88,7 @@ const NavigationBar = ({ isDarkMode, onToggleDarkMode }) => {
                             </a>
                         </div>
 
-                        <div className="ml-auto flex items-center gap-2 md:hidden">
+                        <div className="ml-auto flex items-center gap-2 lg:hidden">
                             <button
                                 type="button"
                                 onClick={onToggleDarkMode}
@@ -127,11 +127,11 @@ const NavigationBar = ({ isDarkMode, onToggleDarkMode }) => {
                 </div>
             </nav>
 
-            {/* Mobile Glass Card Menu (rendered outside <nav> to allow independent backdrop-blur) */}
+            {/* Mobile/Tablet Glass Card Menu */}
             {isOpen && (
                 <div
                     ref={menuCardRef}
-                    className="fixed right-0 top-16 z-50 w-56 animate-nav-expand rounded-none rounded-bl-2xl border-b border-l border-gray-200/50 bg-white/90 p-3 text-gray-950 shadow-xl backdrop-blur-md transition-colors duration-300 dark:border-green-300/40 dark:bg-black/80 dark:text-white md:hidden"
+                    className="fixed right-0 top-16 z-50 w-56 animate-nav-expand rounded-none rounded-bl-2xl border-b border-l border-gray-200/50 bg-white/90 p-3 text-gray-950 shadow-xl backdrop-blur-md transition-colors duration-300 dark:border-green-300/40 dark:bg-black/80 dark:text-white lg:hidden"
                     style={{ backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' }}
                 >
                     <div className="flex flex-col space-y-1">
