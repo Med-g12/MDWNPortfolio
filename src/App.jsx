@@ -43,22 +43,18 @@ function RevealSection({ children, delay = 0 }) {
 
 function App() {
 	const [isDarkMode, setIsDarkMode] = useState(() => {
-		if (typeof window === "undefined") return false;
-		return window.matchMedia("(prefers-color-scheme: dark)").matches;
+		if (typeof window === "undefined") return true;
+		const savedTheme = localStorage.getItem("theme");
+		if (savedTheme !== null) {
+			return savedTheme === "dark";
+		}
+		return true;
 	});
 
 	useEffect(() => {
 		document.documentElement.classList.toggle("dark", isDarkMode);
+		localStorage.setItem("theme", isDarkMode ? "dark" : "light");
 	}, [isDarkMode]);
-
-	useEffect(() => {
-		const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-		const handleThemeChange = (event) => setIsDarkMode(event.matches);
-
-		mediaQuery.addEventListener("change", handleThemeChange);
-
-		return () => mediaQuery.removeEventListener("change", handleThemeChange);
-	}, []);
 
 	useEffect(() => {
 		if ("scrollRestoration" in window.history) {
