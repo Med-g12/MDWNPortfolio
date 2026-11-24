@@ -151,6 +151,47 @@
 	display: none;
 }
 
+/* Custom themed horizontal scrollbar (matches the app's green accent) */
+.app-scrollbar {
+	--sb-thumb: rgb(156 163 175 / 0.7);
+	--sb-thumb-hover: rgb(16 185 129 / 0.85);
+	--sb-track: rgb(0 0 0 / 0.06);
+	scrollbar-width: thin;
+	scrollbar-color: var(--sb-thumb) transparent;
+}
+
+.dark .app-scrollbar {
+	--sb-thumb: rgb(134 239 172 / 0.35);
+	--sb-thumb-hover: rgb(134 239 172 / 0.75);
+	--sb-track: rgb(255 255 255 / 0.06);
+}
+
+.app-scrollbar::-webkit-scrollbar {
+	height: 8px;
+}
+
+.app-scrollbar::-webkit-scrollbar-track {
+	background: var(--sb-track);
+	border-radius: 9999px;
+	margin-inline: 4px;
+}
+
+.app-scrollbar::-webkit-scrollbar-thumb {
+	background: var(--sb-thumb);
+	border-radius: 9999px;
+	transition: background 200ms;
+}
+
+.app-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: var(--sb-thumb-hover);
+}
+
+.app-scrollbar::-webkit-scrollbar-button {
+	display: none;
+	width: 0;
+	height: 0;
+}
+
 body {
 	font-family: "Inter", system-ui, sans-serif;
 }

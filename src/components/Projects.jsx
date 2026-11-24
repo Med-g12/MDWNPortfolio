@@ -539,7 +539,7 @@ const Projects = () => {
 
 					<div className="relative border-t border-t-gray-300 -mx-5 px-5 sm:-mx-8 sm:px-8 lg:mx-0 lg:px-0">
 						<div
-							className="flex gap-4 sm:gap-6 lg:gap-5 overflow-x-auto py-4 scrollbar scrollbar-thumb-gray-400 scrollbar-track-gray-100 scrollbar-thin hover:scrollbar-thumb-gray-600 transition-all"
+							className="flex gap-4 sm:gap-6 lg:gap-5 overflow-x-auto py-4 pb-5 app-scrollbar"
 							style={{ WebkitOverflowScrolling: "touch" }}
 						>
 							{projects.map((project) => {
