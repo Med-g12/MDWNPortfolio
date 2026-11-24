@@ -3,6 +3,7 @@ import { ExternalLink, CheckCircle2, ChevronRight } from "lucide-react";
 import dsc from "../assets/dsc.png";
 import flashify from "../assets/flashify.png";
 import rentright from "../assets/rentright.png";
+import dermassist from "../assets/DermAssistLandingPage.png";
 
 /* ─────────────────────────────────────────────
    ProjectCard — owns its own animation state
@@ -497,6 +498,26 @@ const Projects = () => {
 			],
 			role: "Full-Stack Developer",
 			status: "Ongoing",
+		},
+		{
+			id: 4,
+			img: dermassist,
+			title: "DermAssist",
+			tech: "Nuxt + Laravel + Python (ML)",
+			color: "from-teal-500 to-teal-50",
+			purpose:
+				"Our thesis project: an AI-powered web platform connecting dermatology patients and dermatologists, with ML-based skin condition scanning and appointment management.",
+			features: [
+				"ML model that scans for acne, eczema, and herpes",
+				"Bayesian evaluator that asks patients targeted questions for insights",
+				"Appointment booking between patients and dermatologists",
+				"Real-time chat between patients and dermatologists",
+				"Clinic subscription plans with shared doctor seats",
+				"Secure accounts with two-factor authentication",
+			],
+			role: "Full-Stack + ML Developer",
+			status: "Live",
+			liveUrl: "https://www.dermassist.skin/",
 		},
 	];
 
