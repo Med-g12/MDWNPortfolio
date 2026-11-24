@@ -203,7 +203,7 @@ const ProjectCard = ({
 			p.prevClientY = e.clientY;
 			try {
 				e.currentTarget.setPointerCapture(e.pointerId);
-			} catch (_) {}
+			} catch (_) { }
 		},
 		[isActive]
 	);
@@ -247,7 +247,7 @@ const ProjectCard = ({
 		}
 		try {
 			e.currentTarget.releasePointerCapture(e.pointerId);
-		} catch (_) {}
+		} catch (_) { }
 	}, []);
 
 	const handleImgClick = useCallback(
@@ -327,10 +327,10 @@ const ProjectCard = ({
 				<div className="absolute inset-x-0 bottom-0 z-30 flex h-16 items-center justify-between gap-2 border-t border-transparent bg-white/90 px-4 backdrop-blur-sm dark:border-green-300/30 dark:bg-black/35 sm:px-7">
 					<span
 						className={`rounded-full px-2.5 py-1 text-[11px] font-semibold sm:px-3 sm:text-xs ${project.status === "Live"
-								? "bg-emerald-50 text-emerald-700"
-								: project.status === "In Progress" || project.status === "Ongoing"
-									? "bg-amber-50 text-amber-700"
-									: "bg-slate-100 text-slate-600 dark:bg-white/10 dark:text-gray-300"
+							? "bg-emerald-50 text-emerald-700"
+							: project.status === "In Progress" || project.status === "Ongoing"
+								? "bg-amber-50 text-amber-700"
+								: "bg-slate-100 text-slate-600 dark:bg-white/10 dark:text-gray-300"
 							}`}
 					>
 						{project.status}
@@ -445,62 +445,6 @@ const Projects = () => {
 	const projects = [
 		{
 			id: 1,
-			img: dsc,
-			title: "Stickify: DSC",
-			tech: "React + Laravel",
-			color: "from-yellow-400 to-yellow-50",
-			purpose:
-				"A school project developed for a real client, focused on delivering a functional and user-friendly application while applying full-stack development skills.",
-			features: [
-				"Display client's sticker products and services catalog",
-				"Appointment booking system for car wrapping & installations",
-				"Custom sticker design request and quote calculation",
-				"Real-time customer support and live chat",
-				"Business operations management (artist, staff, admin, and subadmin interaction)",
-			],
-			role: "Frontend + Backend Developer",
-			status: "In Progress",
-		},
-		{
-			id: 2,
-			img: flashify,
-			title: "Flashify",
-			tech: "Vue + Laravel + Tailwind CSS",
-			color: "from-cyan-500 to-cyan-50",
-			purpose:
-				"A flashcard study website designed to help students review topics, practice active recall, and make studying more focused and effective.",
-			features: [
-				"Create custom flashcard decks for studying",
-				"Interactive card UI with smooth 3D flip effect",
-				"Study hints display to guide active recall",
-				"Question input and answer reveal at the back of the card",
-			],
-			role: "Frontend Developer",
-			status: "Live",
-			liveUrl: "https://flashify-preview.vercel.app/",
-		},
-		{
-			id: 3,
-			img: rentright,
-			title: "RentRight",
-			tech: "Next.js + Supabase",
-			color: "from-blue-600 to-blue-50",
-			purpose:
-				"A comprehensive rental and property management platform (website & upcoming app) for apartments, commercial buildings, condominiums, and rentable spaces.",
-			features: [
-				"Tenant portal to search and rent available living or commercial spaces",
-				"Automated billing due dates & payment schedules",
-				"Maintenance requests (cleaning, roof repair, property attention)",
-				"Incident & noise reporting for neighboring units",
-				"Comprehensive owner dashboard for buildings, units, and floorplans",
-				"Display buildings & apartments with inclusions (water, electricity, WiFi) and fees",
-				"Interactive building and property location mapping",
-			],
-			role: "Full-Stack Developer",
-			status: "Ongoing",
-		},
-		{
-			id: 4,
 			img: dermassist,
 			title: "DermAssist",
 			tech: "Nuxt + Laravel + Python (ML)",
@@ -518,6 +462,62 @@ const Projects = () => {
 			role: "Full-Stack + ML Developer",
 			status: "Live",
 			liveUrl: "https://www.dermassist.skin/",
+		},
+		{
+			id: 2,
+			img: dsc,
+			title: "Stickify: DSC",
+			tech: "React + Laravel",
+			color: "from-yellow-400 to-yellow-50",
+			purpose:
+				"A school project developed for a real client, focused on delivering a functional and user-friendly application while applying full-stack development skills.",
+			features: [
+				"Display client's sticker products and services catalog",
+				"Appointment booking system for car wrapping & installations",
+				"Custom sticker design request and quote calculation",
+				"Real-time customer support and live chat",
+				"Business operations management (artist, staff, admin, and subadmin interaction)",
+			],
+			role: "Frontend + Backend Developer",
+			status: "In Progress",
+		},
+		{
+			id: 3,
+			img: flashify,
+			title: "Flashify",
+			tech: "Vue + Laravel + Tailwind CSS",
+			color: "from-cyan-500 to-cyan-50",
+			purpose:
+				"A flashcard study website designed to help students review topics, practice active recall, and make studying more focused and effective.",
+			features: [
+				"Create custom flashcard decks for studying",
+				"Interactive card UI with smooth 3D flip effect",
+				"Study hints display to guide active recall",
+				"Question input and answer reveal at the back of the card",
+			],
+			role: "Frontend Developer",
+			status: "Live",
+			liveUrl: "https://flashify-preview.vercel.app/",
+		},
+		{
+			id: 4,
+			img: rentright,
+			title: "RentRight",
+			tech: "Next.js + Supabase",
+			color: "from-blue-600 to-blue-50",
+			purpose:
+				"A comprehensive rental and property management platform (website & upcoming app) for apartments, commercial buildings, condominiums, and rentable spaces.",
+			features: [
+				"Tenant portal to search and rent available living or commercial spaces",
+				"Automated billing due dates & payment schedules",
+				"Maintenance requests (cleaning, roof repair, property attention)",
+				"Incident & noise reporting for neighboring units",
+				"Comprehensive owner dashboard for buildings, units, and floorplans",
+				"Display buildings & apartments with inclusions (water, electricity, WiFi) and fees",
+				"Interactive building and property location mapping",
+			],
+			role: "Full-Stack Developer",
+			status: "Ongoing",
 		},
 	];
 
